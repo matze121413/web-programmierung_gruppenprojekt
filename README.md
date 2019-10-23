@@ -1,5 +1,5 @@
 Kurs WWI18B2
 
-Grupp
+Gruppe
 
-amazzzzzing
+Test Franzi
