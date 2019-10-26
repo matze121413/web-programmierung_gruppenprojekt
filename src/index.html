@@ -41,14 +41,11 @@
         <!-- Kopfbereich der App -->
         <header>
             <nav>
-                <!-- Logo, Zurück-Button und Titel der Seite -->
-                <img class="logo" src="logo.png" alt="Logo" />
-
                 <ul class="menu-left">
                     <li class="go-back">
                         <a href="#">
                             <i class="icon-left-open"></i>
-                            <span class="page-name">Name der Seite</span>
+                            <span class="page-name">What to cook for Christmas ... ?</span>
                         </a>
                     </li>
                     <li class="dont-go-back hidden">
@@ -64,14 +61,6 @@
                 <!-- Übergreifendes App-Menü -->
                 <ul class="menu-right small-screen-hidden">
                     <li>
-                        <a href="#/messages">
-                            <i class="icon-chat-empty"></i>
-                            <span class="small-screen-only">
-                                Benachrichtigungen
-                            </span>
-                        </a>
-                    </li>
-                    <li>
                       <a href="#/search">
                         <i class="icon-search"></i>
                         <span class="small-screen-only">
@@ -79,19 +68,26 @@
                         </span>
                       </a>
                     </li>
-                    <li>
-                        <a href="#/profile">
-                            <i class="icon-user"></i>
-                            <span class="small-screen-only">
-                                Benutzerprofil
-                            </span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
 
+            <!-- Inhalt des Kopfbereichs -->
             <div class="content">
-                Inhalt des Kopfbereichs
+
+              <demo id="demo">
+                  <p>
+                    Countdown bis Weihnachten:
+                  </p>
+                  <script>
+                      // Warten, bis die Seite komplett geladen wurde
+                      window.addEventListener("load", () => {
+                          let app = new App();
+                          var ergebnis = app.countDown();
+                      });
+                  </script>
+                  ergebnis;
+              </demo>
+
             </div>
         </header>
 
