@@ -49,7 +49,7 @@ class App {
         return "EXPIRED";
       }
 
-      return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      return (days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
 
     }, 1000);
   }
