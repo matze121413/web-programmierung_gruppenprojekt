@@ -41,14 +41,11 @@
         <!-- Kopfbereich der App -->
         <header>
             <nav>
-                <!-- Logo, Zurück-Button und Titel der Seite -->
-                <img class="logo" src="logo.png" alt="Logo" />
-
                 <ul class="menu-left">
                     <li class="go-back">
                         <a href="#">
                             <i class="icon-left-open"></i>
-                            <span class="page-name">Name der Seite</span>
+                            <span class="page-name">What to cook for Christmas ... ?</span>
                         </a>
                     </li>
                     <li class="dont-go-back hidden">
@@ -64,26 +61,72 @@
                 <!-- Übergreifendes App-Menü -->
                 <ul class="menu-right small-screen-hidden">
                     <li>
-                        <a href="#/messages">
-                            <i class="icon-chat-empty"></i>
-                            <span class="small-screen-only">
-                                Benachrichtigungen
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/profile">
-                            <i class="icon-user"></i>
-                            <span class="small-screen-only">
-                                Benutzerprofil
-                            </span>
-                        </a>
+                      <a href="#/search">
+                        <i class="icon-search"></i>
+                        <span class="small-screen-only">
+                          Suche
+                        </span>
+                      </a>
                     </li>
                 </ul>
             </nav>
 
+            <!-- Inhalt des Kopfbereichs -->
             <div class="content">
-                Inhalt des Kopfbereichs
+
+              <table class="countdownContainer">
+                <tr>
+                  <td colspan="4">Countdown bis Weihnachten:</td>
+                </tr>
+                <tr>
+                  <td id="days">120</td>
+                  <td id="hours">4</td>
+                  <td id="minutes">12</td>
+                  <td id="seconds">22</td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td>h</td>
+                  <td>m</td>
+                  <td>s</td>
+                </tr>
+              </table>
+              <script type="text/javascript">
+
+              function countDown() {
+                var now = new Date();
+                var eventDate = new Date(2019, 11, 24);
+
+                var currentTime = now.getTime();
+                var eventTime = eventDate.getTime();
+
+                var remTime = eventTime - currentTime;
+
+                var s = Math.floor(remTime / 1000);
+                var m = Math.floor(s / 60);
+                var h = Math.floor(m / 60);
+                var d = Math.floor(h / 24);
+
+                h %= 24;
+                m %= 60;
+                s %= 60;
+
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+
+                document.getElementById("days").textContent = d;
+                document.getElementById("days").innerText = d;
+
+                document.getElementById("hours").textContent = h;
+                document.getElementById("minutes").textContent = m;
+                document.getElementById("seconds").textContent = s;
+
+                setTimeout(countDown(), 1000);
+              }
+              countDown();
+              </script>
+
             </div>
         </header>
 
