@@ -13,13 +13,10 @@
         <!-- Klasse Database: Verwaltet die Daten der Anwendung -->
         <script src="database.js"></script>
 
-        <!-- TODO: Klasse App ausprogrammieren -->
-        <!-- TODO: Klasse PageNotFound anlegen und ausprogrammieren -->
-        <!-- TODO: Klasse PageOverview zu Ende programmieren -->
-        <!-- TODO: Klasse PageDetail zu Ende programmieren -->
         <script src="page-overview/page-overview.js"></script>
         <script src="page-detail/page-detail.js"></script>
         <script src="page-not-found/page-not-found.js"></script>
+        <script src="page-filter/page-filter.js"></script>
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
         <link rel="stylesheet" href="fontello/css/fontello.css" />
@@ -29,10 +26,26 @@
         <link rel="stylesheet" href="elements/tab-buttons.css" />
         <link rel="stylesheet" href="elements/form.css" />
 
+        <style id="page-css"></style>
+
         <script>
             // Warten, bis die Seite komplett geladen wurde
             window.addEventListener("load", () => {
-                let app = new App();
+                let pages = [{
+                    url: "^/$",
+                    klass: PageOverview,
+                },{
+                    url: "^/Filter/$",
+                    klass: PageFilter,
+                },{
+                    url: "^/Detail/(.*)$",
+                    klass: PageDetail,
+                },{
+                    url: ".*",
+                    klass: PageNotFound,
+                }];
+
+                let app = new App("Segelfreunde", pages);
                 app.run();
             });
         </script>
@@ -61,10 +74,18 @@
                 <!-- Übergreifendes App-Menü -->
                 <ul class="menu-right small-screen-hidden">
                     <li>
-                      <a href="#/search">
+                      <a href="#/Search/">
                         <i class="icon-search"></i>
                         <span class="small-screen-only">
                           Suche
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/Filter/">
+                        <i class="icon-search"></i>
+                        <span class="small-screen-only">
+                          Filter
                         </span>
                       </a>
                     </li>
@@ -124,7 +145,7 @@
 
                 setTimeout(countDown(), 1000);
               }
-              countDown();
+              //countDown();
               </script>
 
             </div>

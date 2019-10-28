@@ -1,0 +1,59 @@
+/*
+html{
+    background-color: black;
+    color: white;
+}
+*/
+
+.slidecontainer{
+    width: 100%;
+    margin-top: 10px;
+}
+.slider {
+    -webkit-appearance: none;
+    width:90%;
+    height:10px;
+    backround: linear-gradient(90deg, rgb(205,000,000) 60%, rgb(205,000,000) 60%);
+    outline: none;
+    opacitiy: 0.7;
+    border-radius: 12px;
+    box-shadow: 0px 1px 10px 1px red;
+
+}
+
+.slider::after {
+    content: '100';
+    color: white;
+    position: absolute;
+    left: 80%;
+    top:26%;
+}
+
+.slider::before {
+    content: '1';
+    color: white;
+    position: absolute;
+    left: 12%;
+    top: 26%;
+}
+
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(205, 000, 000) ;
+  cursor:pointer;
+}
+
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(205, 000, 000) ;
+  cursor:pointer;
+}

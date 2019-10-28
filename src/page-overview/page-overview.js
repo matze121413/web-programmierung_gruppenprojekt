@@ -17,7 +17,6 @@ class PageOverview {
      */
     async show() {
         // TODO: Seite anzeigen
-        debugger;
         let mainElement = document.getElementById("app-main-area");
         mainElement.innerHTML = "<button id='test-button'>Test</button>";
 

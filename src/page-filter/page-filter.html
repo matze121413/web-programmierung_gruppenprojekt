@@ -1,0 +1,34 @@
+<!-- Kopfbereich der Seite -->
+<header>
+    Kopfbereich: Kochzeit eintstellen
+</header>
+
+<!-- Hauptbereich der Seite -->
+<main>
+    <h1>Filter</h1>
+    <div>
+        Kategorie
+        <div>
+            <input type="checkbox" name="cbgroup1" value="Vegetarisch">
+            Vegetarisch <br />
+            <input type="checkbox" name="cbgroup2" value="Vegan">
+            Vegan <br />
+            <input type="checkbox" name="cbgroup3" value="Glutenfrei">
+            Glutenfrei <br />
+            <input type="checkbox" name="cbgroup4" value="Laktosefrei">
+            Laktosefrei <br />
+            </div>
+            <br />
+        </div>
+
+        <div>
+            Maximale Arbeitszeit
+            <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="1" class="slider" id="myRange" >
+            <p>
+                Kochzeit:
+                <span id="kochzeit"></span>
+            </p>
+            </div>
+        </div>
+</main>
