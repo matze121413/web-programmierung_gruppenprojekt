@@ -30,12 +30,15 @@ class PageFilter {
         this._pageDom = document.createElement("div");
         this._pageDom.innerHTML = html;
 
+
         let sliderElement = this._pageDom.querySelector("#myRange");
         let kochzeitElement = this._pageDom.querySelector("#kochzeit");
         sliderElement.addEventListener("change", () => this._onRangeChanged(sliderElement, kochzeitElement));
+
+        //Aufruf der Methode, damit zu BEginn der default-Wert angezeigt wird
         this._onRangeChanged(sliderElement, kochzeitElement);
 
-        this._app.setPageTitle("Kochzeit einstellen", {isSubPage: true});
+        this._app.setPageTitle("Filter", {isSubPage: true});
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));

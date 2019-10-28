@@ -15,8 +15,8 @@ class PageUpload {
      */
     async show() {
         // Anzuzeigenden Seiteninhalt nachladen
-        let html = await fetch("page-filter/page-filter.html");
-        let css = await fetch("page-filter/page-filter.css");
+        let html = await fetch("page-upload/page-upload.html");
+        let css = await fetch("page-upload/page-upload.css");
 
         if (html.ok && css.ok) {
             html = await html.text();
