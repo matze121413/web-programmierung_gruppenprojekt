@@ -36,5 +36,23 @@ class PageUpload {
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
+
+        let zutatenTabelle = this._pageDom.querySelector("#zutatenTabelle");
+        let zutatHinzufuegenButton = document.getElementById("hinzufuegen-button");
+        zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
+    }
+    adRow(){
+        let rows = zutatenTabelle.getElementsByTagName("tr").length;
+        let tr = zutatenTabelle.insertRow(rows);
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        td1.innerHTML = '<input name="wertMenge" type="number" placeholder="5" />';
+        td2.innerHTML = '<input name="wertEinheit" type="text" placeholder="gramm" />';
+        td3.innerHTML = '<input name="wertZutat" type="text" placeholder="Mehl" />';
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
     }
 }

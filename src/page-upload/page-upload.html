@@ -24,11 +24,78 @@
                 </div>
                 <div class="mengen">
                     <div class="label">
-                        Menge:
-                        Einheit:
-                        Zutat:
+                        <div>
+                            Menge:
+                            </div>
+                                <div>
+                                Einheit:
+                                </div>
+                                <div>
+                                    Zutat:
+                                </div>
                         </div>
-
+                        <div class="value">
+                            <table  id="zutatenTabelle">
+                                <tr>
+                                    <th>
+                                        <input name="wertMenge" type="number" placeholder="5" />
+                                        </th>
+                                    <th>
+                                        <input name="wertEinheit" type="text" placeholder="gramm" />
+                                        </th>
+                                        <th>
+                                            <input name="wertZutat" type="text" placeholder="Mehl" />
+                                            </th>
+                                    </tr>
+                            </table>
+                            </div>
+                            <div>
+                                  <button type="button" id="hinzufuegen-button">Zutat hinzufügen</button>
+                                </div>
                     </div>
+                    <div class= "zubereitung">
+                        <div class="label">
+                            Beschreibung der Zubereitung:
+                            </div>
+                            <div class = "value">
+                                <input name="beschreibungZubereitung" type="text" placeholder="Zuerst nehmt ihr das..." />
+                                </div>
+                        </div>
+                        <div class="gerichtsMerkmale">
+                            <div class="label">
+                                Zutreffende Merkmale des Gerichtes:
+                                </div>
+                                <div class="value">
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" name="merkmale" value="Vegetarisch">
+                                            Vegetarisch
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="merkmale" value="Vegan">
+                                            Vegan
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="merkmale" value="Glutenfrei">
+                                            Glutenfrei
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="merkmale" value="Laktosefrei">
+                                            Laktosefrei
+                                        </li>
+                                        </ul>
+                                    </div>
+                            </div>
+                        <div class="bildUpload">
+                            <div class ="label">
+                                Bild:
+                                </div>
+                                <div class="value">
+                                    <form method="post" enctype="multipart/form-data">
+                                            <label>Wählen Sie eine Bilddatei (.jpeg, .png usw.) aus.
+                                                <input name="datei" type="file" size="50" accept="image/*">
+                                            </label>
+                                    </div>
+                            </div>
 
         </main>
