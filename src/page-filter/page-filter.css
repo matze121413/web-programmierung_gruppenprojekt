@@ -23,7 +23,7 @@ html{
 
 .slider::after {
     content: '100';
-    color: white;
+    color: black;
     position: absolute;
     left: 80%;
     top:26%;
@@ -31,7 +31,7 @@ html{
 
 .slider::before {
     content: '1';
-    color: white;
+    color: black;
     position: absolute;
     left: 12%;
     top: 26%;
@@ -56,4 +56,5 @@ html{
   border-radius: 50%;
   background: rgb(205, 000, 000) ;
   cursor:pointer;
+
 }
