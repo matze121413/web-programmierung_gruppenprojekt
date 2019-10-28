@@ -12,7 +12,7 @@
 
         <!-- Klasse Database: Verwaltet die Daten der Anwendung -->
         <script src="database.js"></script>
-
+        <script src="page-upload/page-upload.js"></script>
         <script src="page-start/page-start.js"></script>
         <script src="page-detail/page-detail.js"></script>
         <script src="page-not-found/page-not-found.js"></script>
@@ -40,6 +40,9 @@
                 },{
                     url: "^/Detail/(.*)$",
                     klass: PageDetail,
+                },{
+                    url: "^/Detail/(.*)$",
+                    klass: PageUpload,
                 },{
                     url: ".*",
                     klass: PageNotFound,

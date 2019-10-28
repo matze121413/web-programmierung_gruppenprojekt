@@ -37,3 +37,4 @@ class PageUpload {
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
     }
+}
