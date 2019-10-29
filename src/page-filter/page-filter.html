@@ -1,21 +1,37 @@
 <!-- Kopfbereich der Seite -->
-<header>
-    <h1>Filter</h1>
-</header>
+
 
 <!-- Hauptbereich der Seite -->
 <main>
     <div>
         <h4>Kategorie:</h4>
         <div>
-            <input type="checkbox" name="cbgroup1" value="Vegetarisch">
-            Vegetarisch <br />
-            <input type="checkbox" name="cbgroup2" value="Vegan">
-            Vegan <br />
-            <input type="checkbox" name="cbgroup3" value="Glutenfrei">
-            Glutenfrei <br />
-            <input type="checkbox" name="cbgroup4" value="Laktosefrei">
-            Laktosefrei <br />
+            <label class="container" >
+                <input type="checkbox" class="checks" value="Vegetarisch" id="cb1">
+                 Vegetarisch
+                <span class="mark"></span>
+                <br />
+            </label>
+
+            <label class="container">
+                <input type="checkbox" class="checks" value="Vegan" id="cb2">
+                Vegan
+                <span class="mark"></span>
+                <br />
+            </label>
+
+            <label class="container">
+                <input type="checkbox" class="checks" value="Glutenfrei" checked="checked" id="cb3">
+                Glutenfrei
+                <span class="mark"></span> <br />
+            </label>
+
+            <label class="container">
+                <input type="checkbox" class="checks" value="Laktosefrei" id="cb4">
+                Laktosefrei
+                <span class="mark"> </span> <br />
+            </label>
+
             </div>
             <br />
         </div>
@@ -30,4 +46,7 @@
             </p>
             </div>
         </div>
+
+        <button class="btn" id="myResults" >Ergebnisse anzeigen</button>
+
 </main>

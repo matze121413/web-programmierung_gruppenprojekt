@@ -1,23 +1,47 @@
-/*
+
 html{
     background-color: black;
     color: white;
 }
-*/
+
+
+
+.container input{
+        box-shadow: 0px 3px 5px 2px red;
+
+}
+
+label{
+    cursor: pointer;
+}
+
+label:hover{
+color:  rgb(205, 000, 000);
+}
 
 .slidecontainer{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 1em;
 }
+
+.slidecontainer{
+
+}
+
 .slider {
-    -webkit-appearance: none;
+   - webkit-appearance: none;
     width:90%;
     height:10px;
-    backround: linear-gradient(90deg, rgb(205,000,000) 60%, rgb(205,000,000) 60%);
     outline: none;
     opacitiy: 0.7;
-    border-radius: 12px;
-    box-shadow: 0px 1px 10px 1px red;
+    border-radius: 12em;
+    box-shadow: 0px 1px 10px 1px red;;
+
+
+}
+
+.slider:hover{
+    cursor: pointer;
 
 }
 
@@ -32,13 +56,15 @@ html{
 .slider::before {
     content: '1';
     color: black;
-    position: absolute;
+    position:absolute;
     left: 12%;
     top: 26%;
 }
 
 
-
+.slider:hover{
+    color: black;
+}
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -47,6 +73,8 @@ html{
   border-radius: 50%;
   background: rgb(205, 000, 000) ;
   cursor:pointer;
+  opacity: 0.7;
+
 }
 
 
@@ -56,5 +84,19 @@ html{
   border-radius: 50%;
   background: rgb(205, 000, 000) ;
   cursor:pointer;
+  opacity: 0.7;
 
+}
+.btn{
+    color: white;
+    border: none;
+    border-radius: 70%;
+    margin-left: 5em;
+    margin-top: 2em;
+    background: black;
+    padding-top: 1em;
+}
+
+.btn:hover{
+    background:rgb(205, 000, 000);
 }

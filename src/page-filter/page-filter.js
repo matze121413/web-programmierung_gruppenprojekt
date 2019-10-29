@@ -30,13 +30,17 @@ class PageFilter {
         this._pageDom = document.createElement("div");
         this._pageDom.innerHTML = html;
 
-
+        //HIer werden die Elemente aus der html-Seite "geholt"
         let sliderElement = this._pageDom.querySelector("#myRange");
         let kochzeitElement = this._pageDom.querySelector("#kochzeit");
-        sliderElement.addEventListener("change", () => this._onRangeChanged(sliderElement, kochzeitElement));
+        let btnShowElement= this._pageDom.querySelector("#myResults");
+        let cbElements= this._pageDom.querySelectorAll(".checks");
 
-        //Aufruf der Methode, damit zu BEginn der default-Wert angezeigt wird
+        sliderElement.addEventListener("change", () => this._onRangeChanged(sliderElement, kochzeitElement));
+        //Methode soll ausgeführt werden, damit beim Laden der Filter-Page ein default-Wert angezeigt wird
         this._onRangeChanged(sliderElement, kochzeitElement);
+
+        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement));
 
         this._app.setPageTitle("Filter", {isSubPage: true});
         this._app.setPageCss(css);
@@ -44,6 +48,7 @@ class PageFilter {
         this._app.setPageContent(this._pageDom.querySelector("main"));
     }
 
+    //Methode, die Kochzeit ändert, wenn Slider verschoben wird
     _onRangeChanged(sliderElement, kochzeitElement) {
         let minuten = sliderElement.value;
 
@@ -52,16 +57,20 @@ class PageFilter {
         } else {
             kochzeitElement.textContent = `${minuten} Minuten`;
         }
-    }
+    }//Ende Methode
+
+
+    //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
+    _getValue(cbElements, kochzeitElement){
+        let values=[];
+        let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
+
+        cbElements.forEach(cbElements => {
+            if (cbElements.checked) {
+                values.push(cbElements.value);
+            }//Ende if
+}           );
+
+        alert(minuten + " " + values);
 }
-
-
-/*
-var slider = document.getElementById("myRange");
-var output = document.getElementById("kochzeit");
-
-output.innerHTML = slider.kochzeit;
-slider.oninput = function() {
-    output.innerHTML= this.kochzeit;
-}
-*/
+}//Ende der Klasse
