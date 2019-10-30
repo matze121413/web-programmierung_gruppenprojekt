@@ -1,20 +1,22 @@
-
+/*definiert das Basic_lAyout des Filters*/
 html{
     background-color: black;
     color: white;
 }
 
 
-
+/*sorgt dafür, dass der Rand der checkboxen rot schimmert*/
 .container input{
         box-shadow: 0px 3px 5px 2px red;
 
 }
-
+/* verändert den Pfeil der Maus zu eines Zeigefingers*/
 label{
     cursor: pointer;
 }
 
+
+/* verändert die Farbe von weiß auf rot, wenn die MAus drauf zeigt*/
 label:hover{
 color:  rgb(205, 000, 000);
 }
@@ -24,9 +26,6 @@ color:  rgb(205, 000, 000);
     margin-top: 1em;
 }
 
-.slidecontainer{
-
-}
 
 .slider {
    - webkit-appearance: none;
@@ -62,14 +61,12 @@ color:  rgb(205, 000, 000);
 }
 
 
-.slider:hover{
-    color: black;
-}
+/* Layout für Chrome-Browser*/
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgb(205, 000, 000) ;
   cursor:pointer;
@@ -77,16 +74,18 @@ color:  rgb(205, 000, 000);
 
 }
 
-
+/* Layout für MozillA Firefox-Browser*/
 .slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgb(205, 000, 000) ;
   cursor:pointer;
   opacity: 0.7;
 
 }
+
+/* Design des Buttons*/
 .btn{
     color: white;
     border: none;
@@ -97,6 +96,7 @@ color:  rgb(205, 000, 000);
     padding-top: 1em;
 }
 
+/* Farbe, die vom BUtton gewechselt wird, wenn der cursor auf den Button zeigt*/
 .btn:hover{
     background:rgb(205, 000, 000);
 }
