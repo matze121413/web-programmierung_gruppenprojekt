@@ -5,33 +5,46 @@ html{
 }
 
 
-/*sorgt dafür, dass der Rand der checkboxen rot schimmert*/
+/*Überschriften formatieren*/
+h4{
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+
+}
+
+/*sorgt dafür, dass der Rand der checkboxen rot schimmert und der Zeigefinger erscheint*/
 .container input{
         box-shadow: 0px 3px 5px 2px red;
+        cursor: pointer;
 
 }
 /* verändert den Pfeil der Maus zu eines Zeigefingers*/
-label{
+.container{
     cursor: pointer;
 }
 
 
 /* verändert die Farbe von weiß auf rot, wenn die MAus drauf zeigt*/
-label:hover{
+.container:hover{
 color:  rgb(205, 000, 000);
 }
 
+
+/*Größe des slidecontainer bestimmen*/
 .slidecontainer{
     width: 100%;
     margin-top: 1em;
 }
 
 
+/* design des Sliders */
 .slider {
    - webkit-appearance: none;
     width:90%;
     height:10px;
     outline: none;
+    background: linear-gradient(90deg,  white 60%, white 60%);
     opacitiy: 0.7;
     border-radius: 12em;
     box-shadow: 0px 1px 10px 1px red;;
@@ -39,27 +52,32 @@ color:  rgb(205, 000, 000);
 
 }
 
-.slider:hover{
-    cursor: pointer;
-
+.slider::-moz-range-progress{
+    background: red;
+    border-radius: 12em;
+    height: 10px
 }
 
-.slider::after {
-    content: '100';
-    color: black;
+.slider:hover{
+    cursor: pointer;
+}
+
+
+.slider::after{
+    content: "100";
+    color: white;
     position: absolute;
     left: 80%;
     top:26%;
 }
 
 .slider::before {
-    content: '1';
+    content: "1";
     color: black;
     position:absolute;
     left: 12%;
     top: 26%;
 }
-
 
 /* Layout für Chrome-Browser*/
 .slider::-webkit-slider-thumb {
@@ -96,7 +114,7 @@ color:  rgb(205, 000, 000);
     padding-top: 1em;
 }
 
-/* Farbe, die vom BUtton gewechselt wird, wenn der cursor auf den Button zeigt*/
+/* Farbe, die vom Button gewechselt wird, wenn der cursor auf den Button zeigt*/
 .btn:hover{
     background:rgb(205, 000, 000);
 }

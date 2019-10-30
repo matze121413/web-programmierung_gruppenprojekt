@@ -176,7 +176,14 @@ header .content h6 {
     }
 }
 
+/*damit das Hamburger-Menu auch bei normalen Lap_LapTop Displays aufgeklappt/zugeklappt werden kann und sich der Kopfbereich demenstprechend anpasst*/
 @media (min-width: 40em) {
+    .small-screen-hidden {
+        display: none;
+    }
+}
+
+/*@media (min-width: 40em) {
     .small-screen-only {
         display: none !important;
     }
@@ -199,7 +206,7 @@ header .content h6 {
 
     header nav .menu-left {
         flex: 1;
-    }
+    }+/
 }
 
 /*
