@@ -30,7 +30,7 @@ class PageFilter {
         this._pageDom = document.createElement("div");
         this._pageDom.innerHTML = html;
 
-        //HIer werden die Elemente aus der html-Seite "geholt"
+        //Hier werden die Elemente aus der html-Seite "geholt"
         let sliderElement = this._pageDom.querySelector("#myRange");
         let kochzeitElement = this._pageDom.querySelector("#kochzeit");
         let btnShowElement= this._pageDom.querySelector("#myResults");
@@ -73,4 +73,5 @@ class PageFilter {
 
         alert(minuten + " " + values);
 }
+
 }//Ende der Klasse
