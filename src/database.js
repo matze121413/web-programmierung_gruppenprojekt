@@ -9,10 +9,12 @@
  * der Daten fehlen komplett, könnten aber in einer echten Anwendung relativ
  * einfach hinzugefügt werden.
  */
+
 class Database {
+
     /**
      * Konstruktor.
-     */
+    */
     constructor() {
         if(!firebase.apps.length){
         firebase.initializeApp({
@@ -35,10 +37,16 @@ class Database {
           this._rezepte.doc(rezept.id).set(rezept);
         //this._rezepte.doc(rezept["id"]).set(rezept);
     }
-
-    async selectAllRezepte(){
-        let result = await this._rezepte.orderBy("name").get();
+    /*
+    bildHochladen(file){
+        let storageRef= firebase.storage().ref('bilder/'+file.name);
+        storageRef.put(file);
+    }
+    */
+     selectAllRezepte(){
+        let result = this._rezepte.orderBy("id").get();
         let rezepte = [];
+        alert(result.data());
         result.forEach(entry => {
             let rezept = entry.data();
             rezepte.push(rezept);
