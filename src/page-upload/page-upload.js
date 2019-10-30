@@ -38,8 +38,14 @@ class PageUpload {
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
         let zutatenTabelle = this._pageDom.querySelector("#zutatenTabelle");
+
+        let rezeptname =  this._pageDom.querySelector("rezeptName");
+        let gerichtsMerkmale = this._pageDom.querySelectorAll('input[name="merkmale"]');
+        let beschreibungZubereitung = document.getElementById("beschreibung");
+        let uploadButton = document.getElementById("upload");
         let zutatHinzufuegenButton = document.getElementById("hinzufuegen-button");
         zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
+        uploadButton.addEventListener("click", ()=>this.uploadDruck());
     }
     adRow(){
         let rows = zutatenTabelle.getElementsByTagName("tr").length;
@@ -55,4 +61,36 @@ class PageUpload {
         tr.appendChild(td3);
 
     }
+    uploadDruck(){
+        let zutatenTabelle = document.querySelector("#zutatenTabelle");
+        //let trs = zutatenTabelle.getElementsByTagName("tr");
+        let zutaten = new Array();
+         for (var i = 0, row; row = zutatenTabelle.rows[i]; i++){
+            let inputFields = row.getElementsByTagName("INPUT");
+            //let tds = trs.getElementsByTagName("td");
+            //let menge=tds[0];
+            let menge = inputFields[0].value;
+            let einheit = inputFields[1].value;
+            let zutatenName = inputFields[2].value;
+            let zutat = {
+                menge: menge,
+                einheit: einheit,
+                zutatenName: zutatenName
+            }
+            zutaten.push(zutat);
+        }
+        let gerichtsMerkmale = document.querySelectorAll('input[name="merkmale"]');
+        let rezept = {
+                id: ""+Math.round(Math.random()*999999999),
+                name: document.getElementById("rezeptName").value,
+                beschreibung: document.getElementById("beschreibung").value,
+                vegetarisch: gerichtsMerkmale[0].checked,
+                vegan: gerichtsMerkmale[1].checked,
+                glutenfrei: gerichtsMerkmale[2].checked,
+                laktosefrei: gerichtsMerkmale[3].checked,
+                zutaten: zutaten
+            };
+            let datenbank= new Database();
+            datenbank.saveRezept(rezept);
+        }
 }
