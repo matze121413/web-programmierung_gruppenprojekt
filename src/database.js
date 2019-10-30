@@ -14,6 +14,7 @@ class Database {
      * Konstruktor.
      */
     constructor() {
+        if(!firebase.apps.length){
         firebase.initializeApp({
    apiKey: "AIzaSyBzKdqeKSox2ru4vpwcKKrDs-CZo-Xt1zI",
    authDomain: "webprogrammierungfrsama.firebaseapp.com",
@@ -23,17 +24,19 @@ class Database {
    messagingSenderId: "838269787762",
    appId: "1:838269787762:web:e1d1d28ec1ad0bae162ceb"
 });
+}
  // Initialize Firebase
  // firebase.initializeApp(firebaseConfig);
     this._db = firebase.firestore();
     this._rezepte=this._db.collection("rezepte");
     }
 
-    saveRezept(rezept){
-        this._rezepte.doc(rezept.id).set(rezept);
+     saveRezept(rezept){
+          this._rezepte.doc(rezept.id).set(rezept);
+        //this._rezepte.doc(rezept["id"]).set(rezept);
     }
 
-    async selectAllBooks(){
+    async selectAllRezepte(){
         let result = await this._rezepte.orderBy("name").get();
         let rezepte = [];
         result.forEach(entry => {
