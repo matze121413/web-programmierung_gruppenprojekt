@@ -17,6 +17,7 @@
         <script src="page-detail/page-detail.js"></script>
         <script src="page-not-found/page-not-found.js"></script>
         <script src="page-filter/page-filter.js"></script>
+        <script src="page-menu/page-menu.js"></script>
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
         <link rel="stylesheet" href="fontello/css/fontello.css" />
@@ -34,6 +35,9 @@
                 let pages = [{
                     url: "^/$",
                     klass: PageStart,
+                },{
+                    url: "^/Menu/(.*)$",
+                    klass: PageMenu,
                 },{
                     url: "^/Filter/$",
                     klass: PageFilter,
@@ -60,16 +64,20 @@
                 <ul class="menu-left">
 
                     <li class="toggle-menu small-screen-only">
-                        <a href="#">
+                        <a href="#/Menu/">
                             <i class="icon-menu"></i>
+                            <span class="small-screen-only">
+                            </span>
                         </a>
                     </li>
+
                     <li class="go-back">
                         <a href="#">
                             <i class="icon-home"></i>
                             <!--<span class="page-name">What to cook for Christmas ... ?</span>-->
                         </a>
                     </li>
+
                     <li class="dont-go-back hidden">
                         <span class="page-name">Name der Seite</span>
                     </li>
@@ -100,36 +108,9 @@
 
                 </ul>
 
-                <!-- Übergreifendes App-Menü -->
-                <ul class="menu-right small-screen-hidden">
-                    <li>
-                      <a href="#/Herzhaft/">
-                        <i class="icon-search"></i>
-                        <span class="small-screen-only">
-                          Herzhaft
-                        </span>
-                      </a>
-                   </li>
 
-                    <li>
-                      <a href="#/Filter/">
-                        <i class="icon-filter"></i>
-                        <span class="small-screen-only">
-                          Süße Spezialitäten
-                        </span>
-                      </a>
-                    </li>
 
-                    <li>
-                      <a href="#/Upload/">
-                        <i class="icon-upload"></i>
-                        <span class="small-screen-only">
-                          blbla
-                        </span>
-                      </a>
-                    </li>
-                </ul>
-            </nav>
+        </nav>
 
             <!-- Inhalt des Kopfbereichs -->
             <div class="content"></div>
