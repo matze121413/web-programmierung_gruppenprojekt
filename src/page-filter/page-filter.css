@@ -1,9 +1,9 @@
 /*definiert das Basic_lAyout des Filters*/
+
 html{
     background-color: black;
     color: white;
 }
-
 
 /*Überschriften formatieren*/
 h4{
@@ -47,7 +47,7 @@ color:  rgb(205, 000, 000);
     background: linear-gradient(90deg,  white 60%, white 60%);
     opacitiy: 0.7;
     border-radius: 12em;
-    box-shadow: 0px 1px 10px 1px red;;
+    box-shadow: 0px 1px 10px 1px red;
 
 
 }
@@ -92,7 +92,7 @@ color:  rgb(205, 000, 000);
 
 }
 
-/* Layout für MozillA Firefox-Browser*/
+/* Layout für Mozilla Firefox-Browser*/
 .slider::-moz-range-thumb {
   width: 30px;
   height: 30px;
@@ -106,7 +106,7 @@ color:  rgb(205, 000, 000);
 /* Design des Buttons*/
 .btn{
     color: white;
-    border: none;
+    box-shadow: 0px 1px 10px 1px red;
     border-radius: 70%;
     margin-left: 5em;
     margin-top: 2em;
@@ -118,3 +118,8 @@ color:  rgb(205, 000, 000);
 .btn:hover{
     background:rgb(205, 000, 000);
 }
+
+@media (min-width: 40em) {
+    .btn {
+        margin-left: 55em;
+    }

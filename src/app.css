@@ -150,10 +150,11 @@ header .content h4,
 header .content h5,
 header .content h6 {
     margin: 0;
+
 }
 
 header .content h1 {
-    color: rgb(37, 88, 148);
+    color: white;
     text-shadow: 1px 1px 1px rgba(0,0,0, 0.2);
     font-size: 150%;
 }
@@ -176,7 +177,7 @@ header .content h6 {
     }
 }
 
-/*damit das Hamburger-Menu auch bei normalen Lap_LapTop Displays aufgeklappt/zugeklappt werden kann und sich der Kopfbereich demenstprechend anpasst*/
+/*damit das Hamburger-Menu auch bei normalen LapTop Displays aufgeklappt/zugeklappt werden kann und sich der Kopfbereich demenstprechend anpasst*/
 @media (min-width: 40em) {
     .small-screen-hidden {
         display: none;
