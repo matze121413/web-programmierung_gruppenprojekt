@@ -44,8 +44,15 @@ class PageUpload {
         let beschreibungZubereitung = document.getElementById("beschreibung");
         let uploadButton = document.getElementById("upload");
         let zutatHinzufuegenButton = document.getElementById("hinzufuegen-button");
+        let bildHochladen = document.getElementById("bildDatei");
         zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
         uploadButton.addEventListener("click", ()=>this.uploadDruck());
+        /*
+        bildHochladen.addEventListener("change", function(e){
+            var file = e.target.files[0];
+            firebase.storage().ref('bilder/'+file.name);
+            var task= storageRef.put(file);
+        });*/
     }
     adRow(){
         let rows = zutatenTabelle.getElementsByTagName("tr").length;
@@ -92,5 +99,8 @@ class PageUpload {
             };
             let datenbank= new Database();
             datenbank.saveRezept(rezept);
+            //let task = storageRef.put(file);
+            //let rezepte = datenbank.selectAllRezepte();
+            //alert(rezepte[0]["id"]);
         }
 }

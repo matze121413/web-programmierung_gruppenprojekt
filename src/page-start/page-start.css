@@ -1,1 +1,7 @@
-
+.countdownContainer{
+    width: 100%;
+    left: 0;
+    rigth: 0;
+    background: white;
+    border-bottom-width: 1px;
+}
