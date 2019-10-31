@@ -1,7 +1,7 @@
 /**
  * Seite zum Anzeigen des Menübaums.
  */
-class PageMenu {
+class PageSearch {
     /**
      * Konstruktor
      * @param {App} app Zentrale Instanz der App-Klasse
@@ -15,8 +15,8 @@ class PageMenu {
      */
     async show() {
         // Anzuzeigenden Seiteninhalt nachladen
-        let html = await fetch("page-menu/page-menu.html");
-        let css = await fetch("page-menu/page-menu.css");
+        let html = await fetch("page-search/page-search.html");
+        let css = await fetch("page-search/page-search.css");
 
         if (html.ok && css.ok) {
             html = await html.text();
@@ -36,21 +36,5 @@ class PageMenu {
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
     }
-
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    /* var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
-  } */
 
 }//Ende der Klasse
