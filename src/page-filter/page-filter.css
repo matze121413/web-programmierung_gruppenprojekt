@@ -12,6 +12,11 @@ h4{
     font-weight: bold;
 
 }
+ .page-name{
+     color=white;
+ }
+
+
 
 /*sorgt dafür, dass der Rand der checkboxen rot schimmert und der Zeigefinger erscheint*/
 .container input{

@@ -22,7 +22,6 @@ html {
     font-family: "Rubik", sans-serif;
     font-size: 14pt;
     line-height: 1.6;
-
     background-color: black;
 
 
@@ -127,6 +126,7 @@ header nav .menu-left {
 header nav .menu-left .go-back,
 header nav .menu-left .dont-go-back {
     flex: 1;
+
 }
 
 header nav .menu-left li {
@@ -159,6 +159,7 @@ header .content h1 {
     font-size: 150%;
 }
 
+
 header .content h2 {
     font-size: 110%;
 }
@@ -170,6 +171,17 @@ header .content h6 {
     font-size: 110%;
 }
 
+/* Gestaltung des ZUrückpfeils und der Überschrift im Header */
+header .content span {
+    color: white;
+}
+ header .content a{
+     color: white;
+ }
+
+ header .content a:link{
+     text-decoration: none;
+ }
 /* Anpassung an große Bildschirme */
 @media (max-width: 40em) {
     .small-screen-hidden {
