@@ -19,7 +19,8 @@
                     Anzahl der Portionen:
                     </div>
                     <div class = "value">
-                        <input id="portionenEingabe" name="geeignetePortion" type="number" placeholder="n Portionen" />
+                        <input id="portionenEingabe" name="geeignetePortion" type="number" placeholder="1" />
+                        Portion(en) ist die geeignete Menge.
                         </div>
                 </div>
                 <div class="mengen">
@@ -49,10 +50,18 @@
                                     </tr>
                             </table>
                             </div>
-                            <div>
-                                  <button type="button" id="hinzufuegen-button">Zutat hinzufügen</button>
+                            <div class="tabellenButtons">
+
+                            <div class="tabellenButton">
+                                <button type="button" id="hinzufuegen-button">Zutat hinzufügen</button>
                                 </div>
-                    </div>
+                            <div class="tabellenButton">
+                                <button type="button" id="entfernen-button">Zutat entfernen</button>
+                                </div>
+                                </div>
+                                <p>
+            
+                                    </p>
                     <div class= "zubereitung">
                         <div class="label">
                             Beschreibung der Zubereitung:
@@ -91,7 +100,6 @@
                                 Bild:
                                 </div>
                                 <div class="value">
-                                    <form method="post" enctype="multipart/form-data">
                                             <label>Wählen Sie eine Bilddatei (.jpeg, .png usw.) aus.
                                                 <input id="bildDatei" name="datei" type="file" accept="image/*">
                                             </label>
