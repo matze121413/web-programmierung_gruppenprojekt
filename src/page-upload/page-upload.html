@@ -24,27 +24,27 @@
                 </div>
                 <div class="mengen">
                     <div class="label">
-                        <div>
+                        <div class="tabellenBeschreibung">
                             Menge:
-                            </div>
-                                <div>
+                            </div >
+                                <div class="tabellenBeschreibung">
                                 Einheit:
                                 </div>
-                                <div>
+                                <div class="tabellenBeschreibung">
                                     Zutat:
                                 </div>
                         </div>
                         <div class="value">
                             <table  id="zutatenTabelle">
                                 <tr>
-                                    <td>
-                                        <input name="wertMenge" type="number" placeholder="5" />
+                                    <td class="td1">
+                                        <input name="wertMenge" min="0" type="number" placeholder="5" class="mengen"/>
                                         </td>
-                                    <td>
-                                        <input name="wertEinheit" type="text" placeholder="gramm" />
+                                    <td class="td2">
+                                        <input name="wertEinheit"  type="text" placeholder="gramm"  class="einheiten"/>
                                         </td>
-                                        <td>
-                                            <input name="wertZutat" type="text" placeholder="Mehl" />
+                                        <td class="td3">
+                                            <input name="wertZutat" type="text" placeholder="Mehl" class="zutaten"/>
                                             </td>
                                     </tr>
                             </table>
@@ -58,7 +58,7 @@
                             Beschreibung der Zubereitung:
                             </div>
                             <div class = "value">
-                                <input id="beschreibung" name="beschreibungZubereitung" type="text" placeholder="Zuerst nehmt ihr das..." />
+                                <textarea id="beschreibung" name="beschreibungsFeld" ></textarea>
                                 </div>
                         </div>
                         <div class="gerichtsMerkmale">
@@ -93,7 +93,7 @@
                                 <div class="value">
                                     <form method="post" enctype="multipart/form-data">
                                             <label>Wählen Sie eine Bilddatei (.jpeg, .png usw.) aus.
-                                                <input id="bildDatei" name="datei" type="file" size="50" accept="image/*">
+                                                <input id="bildDatei" name="datei" type="file" accept="image/*">
                                             </label>
                                     </div>
                             </div>

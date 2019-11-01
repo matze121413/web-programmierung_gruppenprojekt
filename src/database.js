@@ -46,7 +46,7 @@ class Database {
      selectAllRezepte(){
         let result = this._rezepte.orderBy("id").get();
         let rezepte = [];
-        alert(result.data());
+        //alert(result.length);
         result.forEach(entry => {
             let rezept = entry.data();
             rezepte.push(rezept);

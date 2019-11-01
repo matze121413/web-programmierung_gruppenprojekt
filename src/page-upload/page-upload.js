@@ -60,9 +60,9 @@ class PageUpload {
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
         let td3 = document.createElement("td");
-        td1.innerHTML = '<input name="wertMenge" type="number" placeholder="5" />';
-        td2.innerHTML = '<input name="wertEinheit" type="text" placeholder="gramm" />';
-        td3.innerHTML = '<input name="wertZutat" type="text" placeholder="Mehl" />';
+        td1.innerHTML = '<input name="wertMenge" type="number" placeholder="5" class="mengen"/>';
+        td2.innerHTML = '<input name="wertEinheit" type="text" placeholder="gramm" class="einheiten"/>';
+        td3.innerHTML = '<input name="wertZutat" type="text" placeholder="Mehl" class="zutaten"/>';
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);

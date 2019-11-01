@@ -1,0 +1,72 @@
+html{
+    background-color: black;
+    color: white;
+}
+.label{
+    margin-top: 1em;
+}
+input{
+    box-shadow: 0px 3px 5px 2px red;
+    background-color:#B40404;
+    color:white;
+    border-color: #B40404;
+    border-radius: 0.5px;
+        font-size: 0.8em;
+
+}
+#zutatenTabelle{
+    width: 100%;
+}
+#zutatenTabelle input{
+    width: 95%;
+}
+.td1{
+    width:13%;
+    padding-right: 2%;
+}
+
+#beschreibung{
+    width: 90%;
+    height: 10em;
+    box-shadow: 0px 3px 5px 2px red;
+    background-color:#B40404;
+    border-color: #B40404;
+}
+.gerichtsMerkmale ul{
+    list-style-type: none;
+    padding-left: 5%;
+    margin-top: 0.5em;
+}
+
+.tabellenBeschreibung{
+    float: left;
+    width: 33.33333%;
+    box-sizing: border-box;
+}
+#hinzufuegen-button {
+    margin-top: 1em;
+    width:40%;
+    height: 40%;
+    font-size: 0.7em;
+    margin-left:30%;
+}
+button{
+background-color:#e67d00;
+border-radius: 15%;
+}
+#upload{
+    float:right;
+    padding:5%;
+    margin-right:15%;
+    width:45%;
+    height: 40%;
+}
+.bildUpload .value{
+    font-size: 0.65em;
+}
+#bildDatei {
+
+}
+button:hover{
+    background:#c76d00;
+}
