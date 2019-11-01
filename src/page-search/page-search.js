@@ -31,7 +31,7 @@ class PageSearch {
         this._pageDom.innerHTML = html;
 
 
-        this._app.setPageTitle("Menu", {isSubPage: true});
+        this._app.setPageTitle("Suche", {isSubPage: true});
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));

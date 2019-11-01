@@ -35,7 +35,7 @@
             // Warten, bis die Seite komplett geladen wurde
             window.addEventListener("load", () => {
                 let pages = [{
-                    url: "^/Start/$",
+                    url: "^/Home/$",
                     klass: PageStart,
                 },{
                     url: "^/Menu/(.*)$",
@@ -78,8 +78,7 @@
 
                     <li class="go-back">
                         <a href="#/Start/">
-                            <i class="icon-home"></i>
-                            <!--<span class="page-name">What to cook for Christmas ... ?</span>-->
+                            <span class="page-name">What to cook for Christmas ... ?</span>
                         </a>
                     </li>
 
@@ -93,6 +92,14 @@
                         <span class="small-screen-only">
                         </span>
                       </a>
+                   </li>
+
+                   <li>
+                       <a href="#/Home/">
+                           <i class="icon-home"></i>
+                           <span class="small-screen-only">
+                           </span>
+                       </a>
                    </li>
 
                    <li>
