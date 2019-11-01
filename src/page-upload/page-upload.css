@@ -33,7 +33,9 @@ input{
     width:13%;
     padding-right: 2%;
 }
-
+.zubereitung .label{
+    clear: left;
+}
 #beschreibung{
     width: 90%;
     height: 10em;
@@ -66,16 +68,14 @@ display: inline;
 
 
 }
+#entfernen-button {
+
+}
 .tabellenButton{
 box-sizing: border-box;
 float: left;
-
-
 }
 
-.tabellenButtons{
-
-}
 button{
 background-color:#e67d00;
 border-radius: 15%;
