@@ -1,11 +1,13 @@
-<<<<<<< HEAD
+h4{
+    color: white;
+}
+
 .countdownContainer{
     width: 100%;
     left: 0;
     rigth: 0;
-    background: white;
-    border-bottom-width: 1px;
+    background-image:url(stars.jpg);
+    background-size:contain;
+    /*border-bottom-width: 1px;*/
+    color: white;
 }
-=======
-
->>>>>>> bcb634e851ccc854a6faefb6e8d8bb227cf2361c

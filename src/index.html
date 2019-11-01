@@ -20,6 +20,7 @@
         <script src="page-not-found/page-not-found.js"></script>
         <script src="page-filter/page-filter.js"></script>
         <script src="page-menu/page-menu.js"></script>
+        <script src="page-search/page-search.js"></script>
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
         <link rel="stylesheet" href="fontello/css/fontello.css" />
@@ -34,7 +35,7 @@
             // Warten, bis die Seite komplett geladen wurde
             window.addEventListener("load", () => {
                 let pages = [{
-                    url: "^/$",
+                    url: "^/Start/$",
                     klass: PageStart,
                 },{
                     url: "^/Menu/(.*)$",
@@ -42,6 +43,9 @@
                 },{
                     url: "^/Filter/$",
                     klass: PageFilter,
+                },{
+                    url: "^/Search/$",
+                    klass: PageSearch,
                 },{
                     url: "^/Detail/(.*)$",
                     klass: PageDetail,
@@ -73,7 +77,7 @@
                     </li>
 
                     <li class="go-back">
-                        <a href="#">
+                        <a href="#/Start/">
                             <i class="icon-home"></i>
                             <!--<span class="page-name">What to cook for Christmas ... ?</span>-->
                         </a>
