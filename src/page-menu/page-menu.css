@@ -1,52 +1,3 @@
-/* #vertical {
-	weight: 100%;
-	heigt: 100%;
-	z-index: 5;
-}
-
-#vertical ul{
-	background: #610B0B;
-	width: 100%;
-	heigth: 100%;
-    list-style:none;
-    margin:0;
-    padding:0;
-}
-
-#vertical ul li {
-    position:relative;
-}
-
-#vertical ul li:hover ul {
-display:block;
-}
-
-#vertical ul ul {
-position:flex;
-
-top:0;
-border-top:1px solid #e9e9e9;
-display:none;
-}
-
-#vertical ul ul li {
-width: 100%;
-background:#8A0808;
-border:1px solid #D5D7DB;
-border-top:0;
-}
-
-#vertical ul ul li a {
-color:#476EA8;
-font-size:15px;
-}
-
-#vertical ul ul li a:hover {
-color:#153363;
-letter-spacing: 1px;
-background: #F0F4FA;
-} */
-
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
@@ -101,7 +52,7 @@ background: #F0F4FA;
 }
 
 /* Optional: Style the caret down icon */
-.fa-caret-down {
+.icon-plus {
   float: right;
   padding-right: 8px;
 }

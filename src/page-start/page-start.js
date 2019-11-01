@@ -32,7 +32,7 @@ class PageStart {
         this._pageDom = document.createElement("div");
         this._pageDom.innerHTML = html;
 
-        this._app.setPageTitle("startseite", {isSubPage: true});
+        this._app.setPageTitle("Startseite", {isSubPage: true});
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
@@ -41,34 +41,28 @@ class PageStart {
     }
 
     _countDown() {
-        var now = new Date();
-        var eventDate = new Date(2019, 11, 24);
 
-        var currentTime = now.getTime();
-        var eventTime = eventDate.getTime();
+    var christmas = new Date("Dec 24, 2019 00:00:00").getTime();
 
-        var remTime = eventTime - currentTime;
+    var x = setInterval(function() {
 
-        var s = Math.floor(remTime / 1000);
-        var m = Math.floor(s / 60);
-        var h = Math.floor(m / 60);
-        var d = Math.floor(h / 24);
+      var today = new Date().getTime();
 
-        h %= 24;
-        m %= 60;
-        s %= 60;
+      var timeLeft = christmas - today;
 
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
+      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        document.getElementById("days").textContent = d;
-        document.getElementById("days").innerText = d;
+      document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
 
-        document.getElementById("hours").textContent = h;
-        document.getElementById("minutes").textContent = m;
-        document.getElementById("seconds").textContent = s;
+      if (timeLeft < 0) {
+        clearInterval(x);
+        document.getElementById("countDown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+}
 
-        setTimeout(() => this._countDown(), 1000);
-    }
 }
