@@ -60,8 +60,11 @@ class PageUpload {
         let rows = zutatenTabelle.getElementsByTagName("tr").length;
         let tr = zutatenTabelle.insertRow(rows);
         let td1 = document.createElement("td");
+        td1.classList.add('td1');
         let td2 = document.createElement("td");
+        td2.classList.add('td2');
         let td3 = document.createElement("td");
+        td3.classList.add('td3');
         td1.innerHTML = '<input name="wertMenge" type="number" placeholder="5" class="mengen"/>';
         td2.innerHTML = '<input name="wertEinheit" type="text" placeholder="gramm" class="einheiten"/>';
         td3.innerHTML = '<input name="wertZutat" type="text" placeholder="Mehl" class="zutaten"/>';
