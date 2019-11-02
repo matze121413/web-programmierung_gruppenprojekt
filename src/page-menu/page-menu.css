@@ -1,4 +1,5 @@
-/* Fixed sidenav, full height */
+
+
 .sidenav {
   height: 100%;
   width: 200px;
@@ -55,4 +56,50 @@
 .icon-plus {
   float: right;
   padding-right: 8px;
+}
+
+@media (min-width: 45em) {
+    .sidenav {
+      height: 100%;
+      width: 75%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 0;
+    }
+
+
+    /* On mouse-over */
+    .sidenav a:hover, .dropdown-btn:hover {
+      color: #f1f1f1;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 200px; /* Same as the width of the sidenav */
+      font-size: 200px; /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
+
+    /* Add an active class to the active dropdown button */
+    .active {
+      background-color: #6e6e6e;
+      color: white;
+    }
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdown-container {
+      visibility: visible;
+      background-color: #262626;
+      padding-left: 8px;
+    }
+
+    /* Optional: Style the caret down icon */
+    .icon-plus {
+      float: right;
+      padding-right: 8px;
+    }
 }
