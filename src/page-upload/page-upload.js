@@ -44,10 +44,12 @@ class PageUpload {
         let beschreibungZubereitung = document.getElementById("beschreibung");
         let uploadButton = document.getElementById("upload");
         let zutatHinzufuegenButton = document.getElementById("hinzufuegen-button");
+        let datenLesenButton = document.getElementById("test-button");
         let zutatEntfernenButton = document.getElementById("entfernen-button");
         let bildHochladen = document.getElementById("bildDatei");
         zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
         zutatEntfernenButton.addEventListener("click", ()=>this.deleteRow());
+        datenLesenButton.addEventListener("click", ()=>this.getEverything());
         uploadButton.addEventListener("click", ()=>this.uploadDruck());
         /*
         bildHochladen.addEventListener("change", function(e){
@@ -55,6 +57,11 @@ class PageUpload {
             firebase.storage().ref('bilder/'+file.name);
             var task= storageRef.put(file);
         });*/
+    }
+    async getEverything(){
+        let datenbank = new Database();
+        let  rezepte = await datenbank.selectAllRezepte();
+        alert(rezepte[0]["id"]);
     }
     adRow(){
         let rows = zutatenTabelle.getElementsByTagName("tr").length;

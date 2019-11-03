@@ -43,16 +43,27 @@ class Database {
         storageRef.put(file);
     }
     */
-     selectAllRezepte(){
-        let result = this._rezepte.orderBy("id").get();
-        let rezepte = [];
-        //alert(result.length);
-        result.forEach(entry => {
-            let rezept = entry.data();
-            rezepte.push(rezept);
-        });
-        return rezepte;
+     async selectAllRezepte(){
+         let result = await this._rezepte.orderBy("name").get();
+         let rezepte = [];
+         //alert(typeof(result[0]["id"]));
+         result.forEach(entry => {
+             let rezept = entry.data();
+             rezepte.push(rezept);
+         });
+         return rezepte;
     }
+    /* let result = this._rezepte.orderBy("name").get();
+    alert(typeof(result[0]));
+     let rezepte = [];
+     //alert(typeof(result[0]["id"]));
+     result.forEach(entry => {
+         let rezept = entry.data();
+         rezepte.push(rezept);
+     });
+     return rezepte;
+
+    */
     /**
      * Diese Methode sucht einen Datensazt anhand seiner ID in der Datenbank
      * und liefert den ersten, gefundenen Treffer zurück.
