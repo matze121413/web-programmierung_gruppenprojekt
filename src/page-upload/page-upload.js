@@ -51,17 +51,17 @@ class PageUpload {
         zutatEntfernenButton.addEventListener("click", ()=>this.deleteRow());
         datenLesenButton.addEventListener("click", ()=>this.getEverything());
         uploadButton.addEventListener("click", ()=>this.uploadDruck());
-        /*
+/*
         bildHochladen.addEventListener("change", function(e){
             var file = e.target.files[0];
-            firebase.storage().ref('bilder/'+file.name);
+            let storageRef= firebase.storage().ref('bilder/'+file.name);
             var task= storageRef.put(file);
         });*/
     }
     async getEverything(){
         let datenbank = new Database();
         let  rezepte = await datenbank.selectAllRezepte();
-        alert(rezepte[0]["id"]);
+        alert(rezepte[0]["name"]);
     }
     adRow(){
         let rows = zutatenTabelle.getElementsByTagName("tr").length;
@@ -91,8 +91,16 @@ class PageUpload {
         let korrekt=true;
          for (var i = 0, row; row = zutatenTabelle.rows[i]; i++){
             let inputFields = row.getElementsByTagName("INPUT");
-            //let tds = trs.getElementsByTagName("td");
-            //let menge=tds[0];
+            let  bildHochladen = document.getElementById("bildDatei");
+            //alert(typeof(bildHochladen));
+            try{
+            var file= bildHochladen.files[0];
+            var fileName = ""+Math.round(Math.random()*999999999);
+            var storageRef= firebase.storage().ref('bilder/'+fileName);
+        }catch(e){
+            alert("Kein Bild hochgeladen!");
+            korrekt=false;
+        }
             let menge = inputFields[0].value;
             menge=parseFloat(menge);
             let einheit = inputFields[1].value;
@@ -121,6 +129,7 @@ class PageUpload {
             let gerichtsMerkmale = document.querySelectorAll('input[name="merkmale"]');
                 let rezept = {
                     id: ""+Math.round(Math.random()*999999999),
+                    bildId: fileName,
                     name: name,
                     beschreibung: beschreibung,
                     portionen: portionen,
@@ -132,11 +141,13 @@ class PageUpload {
             };
             let datenbank= new Database();
             datenbank.saveRezept(rezept);
+            var task= storageRef.put(file);
             alert("Rezept wurde erfolgreich gespeichert.");
             }
-            //let task = storageRef.put(file);
-            //let rezepte = datenbank.selectAllRezepte();
-            //alert(rezepte[0]["id"]);
+            //var file = e.target.files[0];
+            //firebase.storage().ref('bilder/'+file.name);
+            //var task= storageRef.put(file);
+
         }else {
             alert("In der Beschreibung der Zutaten ist eine fehlende oder fehlerhafte Eingabe vorhanden!");
         }
