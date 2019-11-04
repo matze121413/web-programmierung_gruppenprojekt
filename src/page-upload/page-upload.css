@@ -97,3 +97,9 @@ font-size: 1em;
 button:hover{
     background:#c76d00;
 }
+.kategorie .value table{
+    width:100%;
+}
+.kategorie .value th{
+    
+}

@@ -125,11 +125,35 @@ class PageUpload {
                 korrekt=false;
                 alert("Rezeptname, Beschreingung und Portionenangabe müssen korrekt angegeben werden!");
             }
+            var kategorie = document.querySelectorAll('input[name="kategorieWert"]');
+            if (kategorie[0].checked){
+            let kategorie=1;
+        }
+            else if(kategorie[1].checked){
+            var kategorieValue=2;
+        }
+            else if(kategorie[2].checked){
+            var kategorieValue=3;
+        }
+            else if(kategorie[3].checked){
+            var kategorieValue=4;
+        }
+            else if(kategorie[4].checked){
+            var kategorieValue=5;
+        }
+            else if(kategorie[5].checked){
+            var kategorieValue=6;
+        }
+            else{
+                alert("Keine Kategorie ausgewählt!");
+                return;
+            }
             if(korrekt){
             let gerichtsMerkmale = document.querySelectorAll('input[name="merkmale"]');
                 let rezept = {
                     id: ""+Math.round(Math.random()*999999999),
                     bildId: fileName,
+                    kategorie: kategorieValue,
                     name: name,
                     beschreibung: beschreibung,
                     portionen: portionen,
