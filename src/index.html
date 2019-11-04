@@ -22,6 +22,7 @@
         <script src="page-filter/page-filter.js"></script>
         <script src="page-menu/page-menu.js"></script>
         <script src="page-search/page-search.js"></script>
+        <script src="page-filter-ergebnis/page-filter-ergebnis.js"></script>
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
         <link rel="stylesheet" href="fontello/css/fontello.css" />
@@ -56,6 +57,9 @@
                 },{
                     url: "^/Upload/(.*)$",
                     klass: PageUpload,
+                },{
+                    url: "^/FilterErgebnis/(.*)$",
+                    klass: PageFilter,
                 },{
                     url: ".*",
                     klass: PageNotFound,

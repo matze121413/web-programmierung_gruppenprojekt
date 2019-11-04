@@ -35,12 +35,13 @@ class PageFilter {
         let kochzeitElement = this._pageDom.querySelector("#kochzeit");
         let btnShowElement= this._pageDom.querySelector("#myResults");
         let cbElements= this._pageDom.querySelectorAll(".checks");
+        let labelElement= this._pageDom.querySelector("anzeigen");
 
         sliderElement.addEventListener("change", () => this._onRangeChanged(sliderElement, kochzeitElement));
         //Methode soll ausgeführt werden, damit beim Laden der Filter-Page ein default-Wert angezeigt wird
         this._onRangeChanged(sliderElement, kochzeitElement);
 
-        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement));
+        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement, labelElement));
 
         this._app.setPageTitle("Filter", {isSubPage: true});
         this._app.setPageCss(css);
@@ -61,9 +62,10 @@ class PageFilter {
 
 
     //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
-    _getValue(cbElements, kochzeitElement){
+    _getValue(cbElements, kochzeitElement, labelElement){
         let values=[];
         let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
+        let text= minuten + " " + values;
 
         cbElements.forEach(cbElements => {
             if (cbElements.checked) {
@@ -71,7 +73,18 @@ class PageFilter {
             }//Ende if
 }           );
 
-        alert(minuten + " " + values);
+    //let datenbank = new Database();
+    //let  rezepte = await datenbank.selectAllRezepte();
+    //for(i=0; i<rezepte.length; i++){
+    //if(rezepte[i]["glutenfrei"]==values[0]||rezept.glutenfrei[i]==values[1]||rezept.glutenfrei[i]==values[2]||rezept.glutenfrei[i]==values[3]){
+    //lableElement.innerHTML= rezept[i]["name"];
+//}//if
+    //if(rezept.zubereitungszeit)
+//}//for
+
+        //alert(minuten + " " + values);
 }
+
+
 
 }//Ende der Klasse
