@@ -241,3 +241,15 @@ main a:visited {
 main a:hover {
     color: red;
 }
+
+@media (max-width: 45em) {
+#responsiveMenu {
+    visibility: hidden;
+}
+}
+
+@media (min-width: 45em) {
+    .icon-menu {
+        visibility: hidden;
+    }
+}
