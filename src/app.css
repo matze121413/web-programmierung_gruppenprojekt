@@ -244,17 +244,21 @@ main a:hover {
 
 @media (max-width: 45em) {
 #responsiveMenu {
-    visibility: hidden;
+    display: none;
+}
+header nav ul nav {
+    display: none;
 }
 }
 
 @media (min-width: 45em) {
     .icon-menu {
-        visibility: hidden;
+        display: none;
     }
 
+
             header nav ul nav {
-                box-sizing: border-box;
+
                 float: left;
                 width: 100%;
             }
