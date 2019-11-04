@@ -89,18 +89,25 @@ class PageUpload {
         //let trs = zutatenTabelle.getElementsByTagName("tr");
         let zutaten = new Array();
         let korrekt=true;
+        let zubereitungszeit= document.getElementById("vorbereitungsZeitValue").value;
+        zubereitungszeit= parseInt(zubereitungszeit);
+        if(isNaN(zubereitungszeit)){
+            alert("Die Zuberetungszeit ist nicht korrekt angegeben!");
+            return;
+        }
+        let  bildHochladen = document.getElementById("bildDatei");
+        //alert(typeof(bildHochladen));
+        try{
+        var file= bildHochladen.files[0];
+        var fileName = ""+Math.round(Math.random()*999999999);
+        var storageRef= firebase.storage().ref('bilder/'+fileName);
+    }catch(e){
+        alert("Kein Bild hochgeladen!");
+        korrekt=false;
+    }
          for (var i = 0, row; row = zutatenTabelle.rows[i]; i++){
             let inputFields = row.getElementsByTagName("INPUT");
-            let  bildHochladen = document.getElementById("bildDatei");
-            //alert(typeof(bildHochladen));
-            try{
-            var file= bildHochladen.files[0];
-            var fileName = ""+Math.round(Math.random()*999999999);
-            var storageRef= firebase.storage().ref('bilder/'+fileName);
-        }catch(e){
-            alert("Kein Bild hochgeladen!");
-            korrekt=false;
-        }
+
             let menge = inputFields[0].value;
             menge=parseFloat(menge);
             let einheit = inputFields[1].value;
@@ -155,6 +162,7 @@ class PageUpload {
                     bildId: fileName,
                     kategorie: kategorieValue,
                     name: name,
+                    zubereitungszeit: zubereitungszeit,
                     beschreibung: beschreibung,
                     portionen: portionen,
                     vegetarisch: gerichtsMerkmale[0].checked,
