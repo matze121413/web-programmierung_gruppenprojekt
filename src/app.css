@@ -253,7 +253,7 @@ header nav ul nav {
 
 @media (min-width: 45em) {
     .icon-menu {
-        vdisplay: none;
+        display: none;
     }
 
 
