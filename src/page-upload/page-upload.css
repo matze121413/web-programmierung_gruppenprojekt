@@ -30,7 +30,7 @@ input{
     width: 95%;
 }
 .td1{
-    width:13%;
+    width:20%;
     padding-right: 2%;
 }
 .zubereitung .label{
@@ -101,5 +101,5 @@ button:hover{
     width:100%;
 }
 .kategorie .value th{
-    
+
 }

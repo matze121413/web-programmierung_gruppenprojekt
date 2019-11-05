@@ -57,11 +57,13 @@ class PageUpload {
             let storageRef= firebase.storage().ref('bilder/'+file.name);
             var task= storageRef.put(file);
         });*/
-    }
+    }/*
+    let datenbank = new Database();
+    let  rezepte = await datenbank.selectAllRezepte();
+    alert(rezepte[0]["name"]);
+    */
     async getEverything(){
-        let datenbank = new Database();
-        let  rezepte = await datenbank.selectAllRezepte();
-        alert(rezepte[0]["name"]);
+        window.location.href= "#/Home/";
     }
     adRow(){
         let rows = zutatenTabelle.getElementsByTagName("tr").length;
@@ -134,7 +136,7 @@ class PageUpload {
             }
             var kategorie = document.querySelectorAll('input[name="kategorieWert"]');
             if (kategorie[0].checked){
-            let kategorie=1;
+            let kategorieValue=1;
         }
             else if(kategorie[1].checked){
             var kategorieValue=2;
