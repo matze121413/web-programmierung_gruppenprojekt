@@ -89,8 +89,8 @@ async  _getValue(cbElements, kochzeitElement){
     myBtn.innerHTML="Filter überarbeiten";
     document.getElementById("einblenden").appendChild(myBtn);
 
-    //HIer fehlt noch, dass die Elemente wieder aus der page-filter angezeigt werden wenn auf den myBtn gecklickt Wird
-
+    //Hier fehlt noch, dass die Elemente wieder aus der page-filter angezeigt werden wenn auf den myBtn gecklickt Wird
+    myBtn.addEventListener("click", () => this._einblenden());
 
     //Datenbank-Objekt Erzeugung
     let datenbank = new Database();
@@ -176,5 +176,9 @@ async  _getValue(cbElements, kochzeitElement){
         //window.location.href="#/FilterErgebnis/";
 }//Ende MEthode
 
+//Methode zum Neuladen der page-filter Seite
+_einblenden(){
+location.reload();
+}
 
 }//Ende der Klasse
