@@ -16,40 +16,41 @@
 
 <!-- Hauptbereich der Seite -->
 <main>
-    <div>
-        <h4>Kategorie:</h4>
-        <div>
+    <div id="einblenden">
+
+
+        <div id="myCheckBox">
+                <h4>Kategorie:</h4>
             <label class="container" >
-                <input type="checkbox" class="checks" value="Vegetarisch" id="cb1">
+                <input type="checkbox" class="checks" value="vegetarisch" id="cb1">
                  Vegetarisch
                 <span class="mark"></span>
-                <br />
+                <br/>
             </label>
 
             <label class="container">
-                <input type="checkbox" class="checks" value="Vegan" id="cb2">
+                <input type="checkbox" class="checks" value="vegan" id="cb2">
                 Vegan
                 <span class="mark"></span>
                 <br />
             </label>
 
             <label class="container">
-                <input type="checkbox" class="checks" value="Glutenfrei" checked="checked" id="cb3">
+                <input type="checkbox" class="checks" value="glutenfrei" checked="checked" id="cb3">
                 Glutenfrei
                 <span class="mark"></span> <br />
             </label>
 
             <label class="container">
-                <input type="checkbox" class="checks" value="Laktosefrei" id="cb4">
+                <input type="checkbox" class="checks" value="laktosefrei" id="cb4">
                 Laktosefrei
                 <span class="mark"> </span> <br />
             </label>
 
             </div>
             <br />
-        </div>
 
-        <div>
+        <div id="mySlider">
             <h4>Maximale Arbeitszeit:</h4>
             <div class="slidecontainer">
             <input type="range" min="1" max="200" value="1" id="myRange" class="slider"  >
@@ -60,5 +61,7 @@
             </div>
         </div>
 
+
         <button class="btn" id="myResults" >Ergebnisse anzeigen</button>
+        </div>
 </main>
