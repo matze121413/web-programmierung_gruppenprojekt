@@ -136,7 +136,7 @@ class PageUpload {
             }
             var kategorie = document.querySelectorAll('input[name="kategorieWert"]');
             if (kategorie[0].checked){
-            let kategorieValue=1;
+            var kategorieValue=1;
         }
             else if(kategorie[1].checked){
             var kategorieValue=2;
