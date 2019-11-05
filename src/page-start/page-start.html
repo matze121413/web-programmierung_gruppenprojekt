@@ -24,22 +24,22 @@
 <!-- Hauptbereich -->
 <main>
     <div id="myimg">
-        <img src=getDownloadURL()
+        <img src="getDownloadURL()">
 </main>
 
-<!-- <script>
+<script>
     function getRandomRezept() {
         let datenbank = new Database();
         let rezepte[] = await datenbank.selectAllRezepte();
 
         rezepte[].forEach(function(getBildId) {
-            for(var i = 0; i <= 30, i++) {
+            for(var i = 0; i < rezepte.length, i++) {
              let bildId[i] = rezepte.bildId;
             }
             return bildId[];
         });
 
-        for(var i = 0; i <= 30, i++) {
+        for(var i = 0; i < rezepte.length, i++) {
         storageRef.child('bilder/bildId[i].jpg').getDownloadURL().then(function(url) {
             var xhr = new XMLHttpRequest();
             xhr.responseType = 'blob';
@@ -57,4 +57,4 @@
         }
     }
     }
-</script> -->
+</script>

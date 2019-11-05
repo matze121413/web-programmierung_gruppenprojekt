@@ -37,6 +37,9 @@ class PageMenu {
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
         this._dropdown();
+        this._back();
+
+
 
     }
 
@@ -55,7 +58,13 @@ class PageMenu {
           dropdownContent.style.display = "block";
         }
       });
-  }
-}
+    }
+    }
+
+    _back() {
+        document.getElementById("back").addEventListener("click", function() {
+            window.location.href = "#/Home/";
+        });
+    }
 
 }//Ende der Klasse
