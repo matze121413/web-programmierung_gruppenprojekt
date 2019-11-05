@@ -36,14 +36,13 @@ class PageFilter {
         let kochzeitElement = this._pageDom.querySelector("#kochzeit");
         let btnShowElement= this._pageDom.querySelector("#myResults");
         let cbElements= this._pageDom.querySelectorAll(".checks");
-        let labelElement= this._pageDom.querySelector("#anzeigen");
 
 
         sliderElement.addEventListener("change", () => this._onRangeChanged(sliderElement, kochzeitElement));
         //Methode soll ausgeführt werden, damit beim Laden der Filter-Page ein default-Wert angezeigt wird
         this._onRangeChanged(sliderElement, kochzeitElement);
 
-        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement, labelElement));
+        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement));
 
         this._app.setPageTitle("Filter", {isSubPage: true});
         this._app.setPageCss(css);
@@ -64,7 +63,7 @@ class PageFilter {
 
 
     //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
-    _getValue(cbElements, kochzeitElement, labelElement){
+async  _getValue(cbElements, kochzeitElement){
         let values=[];
         let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
 
@@ -98,9 +97,10 @@ class PageFilter {
 
 //}//äußere for-Schleife
 
-        //alert(text);
-        //labelElement.innerHTML= "Hallo";
-        window.location.href="#/FilterErgebnis/";
+        alert(text);
+        //labelElement.innerHTML= rezepte[5]["name"];
+        //window.location.href="#/FilterErgebnis/";
 }
+
 
 }//Ende der Klasse

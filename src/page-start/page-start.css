@@ -5,7 +5,7 @@ h4{
 .countdownContainer{
     width: 100%;
     left: 0;
-    rigth: 0;
+    right: 0;
     background-image:url(stars.jpg);
     background-size:contain;
     /*border-bottom-width: 1px;*/
