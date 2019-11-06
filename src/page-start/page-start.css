@@ -12,3 +12,22 @@ h4{
     color: white;
     background-color: white;
 }
+
+.rezept {
+    display: inline-block;
+
+    color: white;
+    border: 1px solid white;
+
+    width: 10em;
+    height: 10em;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.rezept img {
+    display: block;
+    width: 100%;
+}

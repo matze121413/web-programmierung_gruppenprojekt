@@ -23,38 +23,12 @@
 
 <!-- Hauptbereich -->
 <main>
-    <div id="myimg">
-        <img src="getDownloadURL()">
 </main>
 
-<script>
-    function getRandomRezept() {
-        let datenbank = new Database();
-        let rezepte[] = await datenbank.selectAllRezepte();
-
-        rezepte[].forEach(function(getBildId) {
-            for(var i = 0; i < rezepte.length, i++) {
-             let bildId[i] = rezepte.bildId;
-            }
-            return bildId[];
-        });
-
-        for(var i = 0; i < rezepte.length, i++) {
-        storageRef.child('bilder/bildId[i].jpg').getDownloadURL().then(function(url) {
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'blob';
-            xhr.onload = function(event) {
-                var blob = xhr.response;
-            };
-            xhr.open('GET', url);
-            xhr.send();
-
-            var img = document.getElementById('myimg');
-            img.src = url;
-        }).catch(function(error){
-            alert('Fehler aufgetreten!');
-        });
-        }
-    }
-    }
-</script>
+<!-- Vorlage zur Darstellung eines Rezepts -->
+<template id="template-rezept">
+    <div class="rezept">
+        {NAME}
+        <img src="{IMAGE_URL}" alt="{NAME}" />
+    </div>
+</template>
