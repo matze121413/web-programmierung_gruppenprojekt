@@ -63,7 +63,8 @@ class PageFilter {
 
     //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
 async  _getValue(cbElements, kochzeitElement){
-
+    let datenbank = new Database();
+    let rezepte = await datenbank.selectAllRezepte();
         //Variablen-Deklaration
         let values=[];
         let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
@@ -75,12 +76,50 @@ async  _getValue(cbElements, kochzeitElement){
         let vega;
 
         //Es wird ausgelesen welche Eigenschaften des Filters selektiert wurden und diese sollen in die Array values gespeichert werden
-        cbElements.forEach(cbElements => {
+        /*cbElements.forEach(cbElements => {
             if (cbElements.checked) {
                 values.push(cbElements.value);
+
+
             }//Ende if
 }           );//Ende forEach
+*/function checkVegetarisch(rezept){
+    return rezept["vegetarisch"]==true;
+}
+function checkVegan(rezept){
+    return rezept["vegan"]==true;
+}
+function checkGlutenfrei(rezept){
+    return rezept["glutenfrei"]==true;
+}
+function checkLaktosefrei(rezept){
+    return rezept["laktosefrei"]==true;
+}
 
+//alert(cbElements[3].checked);
+    if(cbElements[0].checked){
+        var veggirezepte = rezepte.filter(checkVegetarisch);
+    }else{
+        var veggirezepte=rezepte;
+    }
+    if(cbElements[1].checked){
+        var veganrezepte= veggirezepte.filter(checkVegan);
+    }else{
+        var veganrezepte=veggirezepte;
+    }
+    if(cbElements[2].checked){
+        var glutenfreirezepte= veganrezepte.filter(checkGlutenfrei);
+    }else{
+        var glutenfreirezepte=veganrezepte;
+    }
+    if(cbElements[3].checked){
+        var laktosefreirezepte= glutenfreirezepte.filter(checkLaktosefrei);
+    }else{
+        var laktosefreirezepte= glutenfreirezepte;
+    }
+    //laktosefrei entspricht dem Stand dass nach allen vom Nutzer ausgewählten Checks gefiltert wurde.
+    //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten 
+    alert(laktosefreirezepte[0]["id"]);
     //Beim Button-Click sollen die Elemente des filters ausgeblendet werden
     document.getElementById("myCheckBox").style.display = "none";
     document.getElementById("mySlider").style.display = "none";
@@ -93,11 +132,14 @@ async  _getValue(cbElements, kochzeitElement){
     myBtn.addEventListener("click", () => this._einblenden());
 
     //Datenbank-Objekt Erzeugung
-    let datenbank = new Database();
-    let rezepte = await datenbank.selectAllRezepte();
+
 
     //Array values wird durchgegangen und überprüft welche ausgewählt wurden damit ein boolean-Flag gesetzt werden kann.
     //Diese flags sind notwendig, damit man die boolean-Werte mit den ausgewählten Eigenschaften aus der page-Filter vergeleichen kann
+
+    if(values[i]=="vegetarisch"){
+
+    }
     for(i=0; i<=values.length; i++){
 
         if(values[i]=="vegetarisch"){
