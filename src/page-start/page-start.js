@@ -32,6 +32,8 @@ class PageStart {
         this._pageDom = document.createElement("div");
         this._pageDom.innerHTML = html;
 
+        await this._renderReciepts(this._pageDom);
+
         this._app.setPageTitle("Startseite", {isSubPage: true});
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
@@ -41,28 +43,54 @@ class PageStart {
     }
 
     _countDown() {
+        var christmas = new Date("Dec 24, 2019 00:00:00").getTime();
 
-    var christmas = new Date("Dec 24, 2019 00:00:00").getTime();
+        var x = setInterval(function() {
 
-    var x = setInterval(function() {
+          var today = new Date().getTime();
 
-      var today = new Date().getTime();
+          var timeLeft = christmas - today;
 
-      var timeLeft = christmas - today;
+          var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
 
-      document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+          if (timeLeft < 0) {
+            clearInterval(x);
+            document.getElementById("countDown").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+    }
 
-      if (timeLeft < 0) {
-        clearInterval(x);
-        document.getElementById("countDown").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-}
+    async _renderReciepts(pageDom) {
+        let rezepte = await this._app.database.selectAllRezepte();
+        let templateElement = pageDom.querySelector("#template-rezept");
+        let mainElement = pageDom.querySelector("main");
 
+        for (let i = 0; i < rezepte.length; i++) {
+            let rezept = rezepte[i];
+
+            // URL des Bilds ermitteln
+            let imageUrl = "default.jpg";
+
+            if (rezept.bildId) {
+                try {
+                    imageUrl = await this._app.database.getBildUrl(rezept.bildId);
+                } catch (error) {
+                    console.error(error);
+                    imageUrl = "default.jpg";
+                }
+            }
+
+            // HTML-Code zur Anzeige des Rezepts erzeugen
+            let html = templateElement.innerHTML;
+            html = html.replace(/{NAME}/g, rezept.name);
+            html = html.replace(/{IMAGE_URL}/g, imageUrl);
+            mainElement.innerHTML += html;
+        }
+    }
 }
