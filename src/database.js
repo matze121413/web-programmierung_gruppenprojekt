@@ -57,7 +57,7 @@ class Database {
     }
 
     async getBildUrl(bildId) {
-        return await this._storage.child(`bilder/bildId[${bildId}].jpg`).getDownloadURL();
+        return await this._storage.child(`bilder/${bildId}`).getDownloadURL();
     }
 
     /* let result = this._rezepte.orderBy("name").get();

@@ -1,7 +1,7 @@
 /**
  * Seite zum Anzeigen des Menübaums.
  */
-class PageHauptspeise {
+class PageFingerfood {
     /**
      * Konstruktor
      * @param {App} app Zentrale Instanz der App-Klasse
@@ -15,8 +15,8 @@ class PageHauptspeise {
      */
     async show() {
         // Anzuzeigenden Seiteninhalt nachladen
-        let html = await fetch("page-hauptspeise/page-hauptspeise.html");
-        let css = await fetch("page-hauptspeise/page-hauptspeise.css");
+        let html = await fetch("page-fingerfood/page-fingerfood.html");
+        let css = await fetch("page-fingerfood/page-fingerfood.css");
 
         if (html.ok && css.ok) {
             html = await html.text();
@@ -55,7 +55,7 @@ class PageHauptspeise {
     for (let i = 0; i < rezepte.length; i++) {
         let rezept = rezepte[i];
 
-        if(rezept.kategorie == 5) {
+        if(rezept.kategorie == 1) {
 
         // URL des Bilds ermitteln
         let imageUrl = "default.jpg";

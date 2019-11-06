@@ -23,6 +23,11 @@
         <script src="page-menu/page-menu.js"></script>
         <script src="page-search/page-search.js"></script>
         <script src="page-hauptspeise/page-hauptspeise.js"></script>
+        <script src="page-vorspeise/page-vorspeise.js"></script>
+        <script src="page-fingerfood/page-fingerfood.js"></script>
+        <script src="page-kuchen/page-kuchen.js"></script>
+        <script src="page-dessert/page-dessert.js"></script>
+        <script src="page-plaetzchen/page-plaetzchen.js"></script>
 
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
@@ -44,8 +49,23 @@
                     url: "^/Home/$",
                     klass: PageStart,
                 },{
+                    url: "^/Dessert/$",
+                    klass: PageDessert,
+                },{
+                    url: "^/Plaetzchen/$",
+                    klass: PagePlaetzchen,
+                },{
+                    url: "^/Kuchen/$",
+                    klass: PageKuchen,
+                },{
+                    url: "^/Fingerfood/$",
+                    klass: PageFingerfood,
+                },{
                     url: "^/Hauptspeise/$",
                     klass: PageHauptspeise,
+                },{
+                    url: "^/Vorspeise/$",
+                    klass: PageVorspeise,
                 },{
                     url: "^/Menu/(.*)$",
                     klass: PageMenu,
@@ -110,15 +130,15 @@
                             <li class="submenu"><a href="#/Home/">Herzhaft</a>
                                 <ul>
                                     <li class="show"><a href="#/Fingerfood/">Fingerfood</a></li>
-                                    <li class="show"><a href="#/Home/">Vorspeise</a></li>
+                                    <li class="show"><a href="#/Vorspeise/">Vorspeise</a></li>
                                     <li class="show"><a href="#/Hauptspeise/">Hauptspeise</a></li>
                                 </ul>
                             </li>
                             <li class="submenu"><a href="#/Home/">Süß</a>
                                 <ul>
-                                    <li class="show"><a href="#/Home/">Kuchen</a></li>
-                                    <li class="show"><a href="#/Home/">Plätzchen</a></li>
-                                    <li class="show"><a href="#/Home/">Dessert</a></li>
+                                    <li class="show"><a href="#/Kuchen/">Kuchen</a></li>
+                                    <li class="show"><a href="#/Plaetzchen/">Plätzchen</a></li>
+                                    <li class="show"><a href="#/Dessert/">Dessert</a></li>
                                 </ul>
                             </li>
                         </ul>
