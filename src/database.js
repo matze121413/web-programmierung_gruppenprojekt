@@ -17,20 +17,22 @@ class Database {
     */
     constructor() {
         if(!firebase.apps.length){
-        firebase.initializeApp({
-   apiKey: "AIzaSyBzKdqeKSox2ru4vpwcKKrDs-CZo-Xt1zI",
-   authDomain: "webprogrammierungfrsama.firebaseapp.com",
-   databaseURL: "https://webprogrammierungfrsama.firebaseio.com",
-   projectId: "webprogrammierungfrsama",
-   storageBucket: "webprogrammierungfrsama.appspot.com",
-   messagingSenderId: "838269787762",
-   appId: "1:838269787762:web:e1d1d28ec1ad0bae162ceb"
-});
-}
- // Initialize Firebase
- // firebase.initializeApp(firebaseConfig);
-    this._db = firebase.firestore();
-    this._rezepte=this._db.collection("rezepte");
+            firebase.initializeApp({
+               apiKey: "AIzaSyBzKdqeKSox2ru4vpwcKKrDs-CZo-Xt1zI",
+               authDomain: "webprogrammierungfrsama.firebaseapp.com",
+               databaseURL: "https://webprogrammierungfrsama.firebaseio.com",
+               projectId: "webprogrammierungfrsama",
+               storageBucket: "webprogrammierungfrsama.appspot.com",
+               messagingSenderId: "838269787762",
+               appId: "1:838269787762:web:e1d1d28ec1ad0bae162ceb"
+            });
+        }
+
+        // Initialize Firebase
+        // firebase.initializeApp(firebaseConfig);
+        this._db = firebase.firestore();
+        this._storage = firebase.storage().ref();
+        this._rezepte=this._db.collection("rezepte");
     }
 
      saveRezept(rezept){
@@ -43,16 +45,21 @@ class Database {
         storageRef.put(file);
     }
     */
-     async selectAllRezepte(){
-         let result = await this._rezepte.orderBy("name").get();
-         let rezepte = [];
-         //alert(typeof(result[0]["id"]));
-         result.forEach(entry => {
-             let rezept = entry.data();
-             rezepte.push(rezept);
-         });
-         return rezepte;
+    async selectAllRezepte() {
+        let result = await this._rezepte.orderBy("name").get();
+        let rezepte = [];
+        //alert(typeof(result[0]["id"]));
+        result.forEach(entry => {
+            let rezept = entry.data();
+            rezepte.push(rezept);
+        });
+        return rezepte;
     }
+
+    async getBildUrl(bildId) {
+        return await this._storage.child(`bilder/bildId[${bildId}].jpg`).getDownloadURL();
+    }
+
     /* let result = this._rezepte.orderBy("name").get();
     alert(typeof(result[0]));
      let rezepte = [];
@@ -62,8 +69,8 @@ class Database {
          rezepte.push(rezept);
      });
      return rezepte;
-
     */
+
     /**
      * Diese Methode sucht einen Datensazt anhand seiner ID in der Datenbank
      * und liefert den ersten, gefundenen Treffer zurück.
