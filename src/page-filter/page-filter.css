@@ -127,6 +127,10 @@ color:  rgb(205, 000, 000);
     padding-top: 1em;
 }
 
+header .btn{
+    margin-left: 0.5em;
+    margin-top: 1em;
+}
 /* Farbe, die vom Button gewechselt wird, wenn der cursor auf den Button zeigt*/
 .btn:hover{
     background:rgb(205, 000, 000);

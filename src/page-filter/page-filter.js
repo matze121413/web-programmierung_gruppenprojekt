@@ -126,9 +126,14 @@ async  _getValue(cbElements, kochzeitElement){
     document.getElementById("myCheckBox").style.display = "none";
     document.getElementById("mySlider").style.display = "none";
     document.getElementById("myResults").style.display = "none";
+    document.getElementById("i").style.display="none";
+    document.getElementById("name").style.display="none";
+
+    //neuer bUtton wird erzeugt
     let myBtn=document.createElement("button");
+    myBtn.classList.add('btn');
     myBtn.innerHTML="Filter überarbeiten";
-    document.getElementById("einblenden").appendChild(myBtn);
+    document.getElementById("hallo").appendChild(myBtn);
 
     //Beim Button-click auf myBtn, soll die page-Filter neu geladen werden
     myBtn.addEventListener("click", () => this._einblenden());
