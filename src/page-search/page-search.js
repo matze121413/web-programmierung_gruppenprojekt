@@ -49,13 +49,11 @@ class PageSearch {
                 let rezeptName= rezepte[i]["name"];
                 rezeptName= rezeptName.toUpperCase();
                 if(rezeptName.includes(suche)||suche.includes(rezeptName)){
-                    alert("Bin drin!");
                 suchErgebnisse.push(rezepte[i]);
                 }
             }
             let templateElement = document.querySelector("#template-rezept");
             let mainElement = document.getElementById("anzeigenSuche");
-            alert(suchErgebnisse.length+"");
             for (let i = 0; i < suchErgebnisse.length; i++) {
                 let rezept = suchErgebnisse[i];
                 // URL des Bilds ermitteln
