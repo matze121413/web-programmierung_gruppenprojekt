@@ -61,42 +61,33 @@ class PageFilter {
     }//Ende Methode
 
 
-    //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
+//Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
 async  _getValue(cbElements, kochzeitElement){
+
+    //Datenbank-Objekt Erzeugung
     let datenbank = new Database();
+    //Rezepte in rezepte-Array speichern
     let rezepte = await datenbank.selectAllRezepte();
-        //Variablen-Deklaration
-        let values=[];
-        let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
-        let i;
-        let j;
-        let veggi;
-        let lakto;
-        let glute;
-        let vega;
-
-        //Es wird ausgelesen welche Eigenschaften des Filters selektiert wurden und diese sollen in die Array values gespeichert werden
-        /*cbElements.forEach(cbElements => {
-            if (cbElements.checked) {
-                values.push(cbElements.value);
+    //Variablen-Deklaration
+    let minuten = kochzeitElement.innerHTML; //ausgewählte Kochzeit "holen"
+    let min = parseInt(minuten);
 
 
-            }//Ende if
-}           );//Ende forEach
-*/function checkVegetarisch(rezept){
+    //Definition von Funktionen, die zurückgeben, ob ein Rezept eine gewisse Kategorie erfüllt
+    function checkVegetarisch(rezept){
     return rezept["vegetarisch"]==true;
-}
-function checkVegan(rezept){
-    return rezept["vegan"]==true;
-}
-function checkGlutenfrei(rezept){
-    return rezept["glutenfrei"]==true;
-}
-function checkLaktosefrei(rezept){
-    return rezept["laktosefrei"]==true;
-}
+    }
+    function checkVegan(rezept){
+        return rezept["vegan"]==true;
+    }
+    function checkGlutenfrei(rezept){
+        return rezept["glutenfrei"]==true;
+    }
+    function checkLaktosefrei(rezept){
+        return rezept["laktosefrei"]==true;
+    }
 
-//alert(cbElements[3].checked);
+    //rezepte-Array auf das filtern, was Anwender im Filter ausgewählt hat an GErichtseigenschaften
     if(cbElements[0].checked){
         var veggirezepte = rezepte.filter(checkVegetarisch);
     }else{
@@ -117,9 +108,20 @@ function checkLaktosefrei(rezept){
     }else{
         var laktosefreirezepte= glutenfreirezepte;
     }
+
     //laktosefrei entspricht dem Stand dass nach allen vom Nutzer ausgewählten Checks gefiltert wurde.
-    //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten 
-    alert(laktosefreirezepte[0]["id"]);
+    //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten
+    //Rezepte aus der laktosefreirezepte-array auf page-filter ausgeben und dabei prüfen, ob die Zubereitungszeit des Rezepts aus der laktoserezepte-Array
+    //mit der angegebenen Zuberetungszeit aus der page-Filter übereinstimmt
+
+    for(let i=0; i<laktosefreirezepte.length; i++){
+          if(laktosefreirezepte[i]["zubereitungszeit"]<= min){
+              let rezeptname=document.createElement("h4");
+              rezeptname.innerHTML=laktosefreirezepte[i]["name"];
+              document.getElementById("einblenden").appendChild(rezeptname);
+          }//Ende if
+    }//Ende for
+
     //Beim Button-Click sollen die Elemente des filters ausgeblendet werden
     document.getElementById("myCheckBox").style.display = "none";
     document.getElementById("mySlider").style.display = "none";
@@ -128,99 +130,13 @@ function checkLaktosefrei(rezept){
     myBtn.innerHTML="Filter überarbeiten";
     document.getElementById("einblenden").appendChild(myBtn);
 
-    //Hier fehlt noch, dass die Elemente wieder aus der page-filter angezeigt werden wenn auf den myBtn gecklickt Wird
+    //Beim Button-click auf myBtn, soll die page-Filter neu geladen werden
     myBtn.addEventListener("click", () => this._einblenden());
-
-    //Datenbank-Objekt Erzeugung
-
-
-    //Array values wird durchgegangen und überprüft welche ausgewählt wurden damit ein boolean-Flag gesetzt werden kann.
-    //Diese flags sind notwendig, damit man die boolean-Werte mit den ausgewählten Eigenschaften aus der page-Filter vergeleichen kann
-
-    if(values[i]=="vegetarisch"){
-
-    }
-    for(i=0; i<=values.length; i++){
-
-        if(values[i]=="vegetarisch"){
-            veggi = true;
-        }//Ende if-Anweisung
-
-        if(values[i]=="laktosefrei"){
-            lakto = true;
-        }//Ende if-Anweisung
-
-        if(values[i]=="glutenfrei"){
-            glute = true;
-        }//Ende if-Anweisung
-
-        if(values[i]=="vegan"){
-            vega = true;
-        }//Ende if-Anweisung
-
-        //Wenn Array durchgegangen wurde (i=values.length), sollen am Ende die flags wieder auf false gesetzt werden.
-        if(i==values.length){
-            let veggi=false;
-            let lakto=false;
-            let glute=false;
-            let vega=false;
-        }//Ende if-Anweisung
-    }//Ende for-Schleife
-
-        //NUn wird hier die rezepte Array durchlaufen
-        for(j=0; j<rezepte.length; j++){
-
-            //es wird geprüft welche flags==true sind und welche Zubereitungszeit gesetzt worden ist, wenn etwas true ist, geht man in die if-Anweisung
-            //und es wird ein neues html-Element h4 erzeugt. In dieses Element wird der Rezeptname geschrieben, und das html-Element wird dem div-Element
-            //"einblenden" untergeordnet mit appendChild
-            if(rezepte[j]["glutenfrei"]==glute || rezepte[j]["vegetarisch"]==veggi ||  rezepte[j]["vegan"]==vega ||  rezepte[j]["laktosefrei"]==lakto && rezepte[j]["zubereitungszeit"] <= minuten ){
-
-                let rezeptname=document.createElement("h4");
-                rezeptname.innerHTML=rezepte[j]["name"];
-                document.getElementById("einblenden").appendChild(rezeptname);
-            }//if
-
-        }//Ende for-Schleife
-            //if(rezepte[j]["vegetarisch"]==veggi){
-
-                //let rezeptname=document.createElement("h4");
-                //rezeptname.innerHTML=rezepte[j]["name"];
-                //document.getElementById("einblenden").appendChild(rezeptname);
-
-                    //labelElement.innerHTML= rezept[i]["name"];
-            //}//if
-
-
-//if(rezepte[i]["laktosefrei"]==values[j]){
-//labelElement.innerHTML= rezept[i]["name"];
-//}//if
-//(rezepte[i]["vegan"]==values[j]){
-    //labelElement.innerHTML= rezept[i]["name"];
-//}//if
-//(rezepte[i]["vegetarisch"]==values[j]){
-    //labelElement.innerHTML= rezept[i]["name"];
-//}//if
-//if(rezepte[i]["zubereitungszeit"]<= minuten){
-//labelElement.innerHTML= rezept[i]["name"];
-//}
-            //}//innere for-Schleife
-
-
-
-        //alert(text);
-
-        //let myMain = document.getElementsByTagName("main");
-        //let rezeptname = document.createElement("h4");
-        //rezeptname.innerHTML= rezepte [0]["name"];
-        //document.getElementById("einblenden").appendChild(rezeptname);
-
-        //labelElement.innerHTML= rezepte[5]["name"];
-        //window.location.href="#/FilterErgebnis/";
-}//Ende MEthode
+}//Ende Funktion
 
 //Methode zum Neuladen der page-filter Seite
 _einblenden(){
 location.reload();
-}
+}//Ende Funktion
 
 }//Ende der Klasse
