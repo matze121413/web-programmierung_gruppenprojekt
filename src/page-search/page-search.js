@@ -35,6 +35,50 @@ class PageSearch {
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
+        let suchElement= document.getElementById("suche");
+        suchElement.addEventListener("keyup", (event)=> this.nachNamenSuchen(event, suchElement));
+    }
+    async nachNamenSuchen(event, suchElement){
+        if(event.keyCode===13){
+            let datenbank = new Database();
+            //Rezepte in rezepte-Array speichern
+            let rezepte = await datenbank.selectAllRezepte();
+            let suche = suchElement.value.toUpperCase();
+            var suchErgebnisse = [];
+            for(let i=0; i<rezepte.length; i++){
+                let rezeptName= rezepte[i]["name"];
+                rezeptName= rezeptName.toUpperCase();
+                if(rezeptName.includes(suche)||suche.includes(rezeptName)){
+                    alert("Bin drin!");
+                suchErgebnisse.push(rezepte[i]);
+                }
+            }
+            let templateElement = document.querySelector("#template-rezept");
+            let mainElement = document.getElementById("anzeigenSuche");
+            alert(suchErgebnisse.length+"");
+            for (let i = 0; i < suchErgebnisse.length; i++) {
+                let rezept = suchErgebnisse[i];
+                // URL des Bilds ermitteln
+                let imageUrl = "default.jpg";
+
+                if (rezept.bildId) {
+                    try {
+                        imageUrl = await this._app.database.getBildUrl(rezept.bildId);
+                    } catch (error) {
+                        console.error(error);
+                        imageUrl = "default.jpg";
+                    }
+                }
+
+                // HTML-Code zur Anzeige des Rezepts erzeugen
+                let html = templateElement.innerHTML;
+                html = html.replace(/{NAME}/g, rezept.name);
+                html = html.replace(/{IMAGE_URL}/g, imageUrl);
+                mainElement.innerHTML += html;
+
+            //ENDIF
+        }
+    }
     }
 
 }//Ende der Klasse
