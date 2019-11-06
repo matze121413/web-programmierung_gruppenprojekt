@@ -41,7 +41,7 @@ class PageFilter {
         //Methode soll ausgeführt werden, damit beim Laden der Filter-Page ein default-Wert angezeigt wird
         this._onRangeChanged(sliderElement, kochzeitElement);
 
-        btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement));
+        await btnShowElement.addEventListener("click", () => this._getValue(cbElements, kochzeitElement, this._pageDom));
 
         this._app.setPageTitle("Filter", {isSubPage: true});
         this._app.setPageCss(css);
@@ -62,7 +62,7 @@ class PageFilter {
 
 
 //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
-    async  _getValue(cbElements, kochzeitElement){
+   async  _getValue(cbElements, kochzeitElement, pageDom){
 
         //Datenbank-Objekt Erzeugung
         let datenbank = new Database();
@@ -113,18 +113,41 @@ class PageFilter {
         //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten
         //Rezepte aus der laktosefreirezepte-array auf page-filter ausgeben und dabei prüfen, ob die Zubereitungszeit des Rezepts aus der laktoserezepte-Array
         //mit der angegebenen Zuberetungszeit aus der page-Filter übereinstimmt
-        
+
         let a=false;
         for(let i=0; i<laktosefreirezepte.length; i++){
-              if(laktosefreirezepte[i]["zubereitungszeit"]<= min){
+            let rezept = laktosefreirezepte[i];
+
+            // URL des Bilds ermitteln
+            let imageUrl = "default.jpg";
+
+            if (rezept.bildId) {
+                try {
+                    imageUrl = await this._app.database.getBildUrl(rezept.bildId);
+                } catch (error) {
+                    console.error(error);
+                    imageUrl = "default.jpg";
+                }
+            }
+
+              if(rezept.zubereitungszeit<= min){
+
                   let rezeptname=document.createElement("h4");
-                  rezeptname.innerHTML=laktosefreirezepte[i]["name"];
+                  let bild=document.createElement("img");
+                  rezeptname.innerHTML=rezept.name;
+
+                  bild.src = imageUrl;
+                  bild.classList.add('img');
+                 //document.write('<image src="imageUrl">');
+                  bild.alt = rezept.name + " - Bild";
                   document.getElementById("einblenden").appendChild(rezeptname);
+                  document.getElementById("einblenden").appendChild(bild);
                    a = true;
               }
         }//Ende for
         if(!a){
             alert("Es wurden leider keine Rezepte gefunden, die ihren Eingaben entsprechen.");
+            this._einblenden();
         }
 
         //Beim Button-Click sollen die Elemente des filters ausgeblendet werden
@@ -144,9 +167,16 @@ class PageFilter {
         myBtn.addEventListener("click", () => this._einblenden());
     }//Ende Funktion
 
+
+
     //Methode zum Neuladen der page-filter Seite
     _einblenden(){
     location.reload();
     }//Ende Funktion
+
+
+
+
+
 
 }//Ende der Klasse

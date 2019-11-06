@@ -140,6 +140,11 @@ header .btn{
     background:rgb(205, 000, 000);
 }
 
+ img {
+    display: block;
+    width: 100%;
+}
+
 @media (min-width: 40em) {
     .btn {
         margin-left: 55em;
