@@ -40,6 +40,7 @@ class PageStart {
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
         this._countDown();
+        this._goToPageDetail();
     }
 
     _countDown() {
@@ -92,5 +93,11 @@ class PageStart {
             html = html.replace(/{IMAGE_URL}/g, imageUrl);
             mainElement.innerHTML += html;
         }
+    }
+
+    async _goToPageDetail() {
+        document.getElementById("bildMitLink").addEventListener("click", function(){
+            window.location.href = "#/Detail/";
+        });
     }
 }
