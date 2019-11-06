@@ -113,16 +113,14 @@ class PageFilter {
         //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten
         //Rezepte aus der laktosefreirezepte-array auf page-filter ausgeben und dabei prüfen, ob die Zubereitungszeit des Rezepts aus der laktoserezepte-Array
         //mit der angegebenen Zuberetungszeit aus der page-Filter übereinstimmt
-        if(min<=1){
-           alert("Die Zubereitungszeit ist kürzer als eine Minute.Überprüfen sie Ihre Zeitangabe");
-        }
+        
         let a=false;
         for(let i=0; i<laktosefreirezepte.length; i++){
               if(laktosefreirezepte[i]["zubereitungszeit"]<= min){
                   let rezeptname=document.createElement("h4");
                   rezeptname.innerHTML=laktosefreirezepte[i]["name"];
                   document.getElementById("einblenden").appendChild(rezeptname);
-                  let a = true;
+                   a = true;
               }
         }//Ende for
         if(!a){
