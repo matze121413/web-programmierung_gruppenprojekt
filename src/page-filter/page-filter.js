@@ -138,10 +138,13 @@ class PageFilter {
 
                   bild.src = imageUrl;
                   bild.classList.add('img');
-                 //document.write('<image src="imageUrl">');
                   bild.alt = rezept.name + " - Bild";
                   document.getElementById("einblenden").appendChild(rezeptname);
                   document.getElementById("einblenden").appendChild(bild);
+                  bild.addEventListener("click", ()=>{
+                      window.location.href="#/PageDetail/";
+                  });
+
                    a = true;
               }
         }//Ende for
@@ -165,6 +168,7 @@ class PageFilter {
 
         //Beim Button-click auf myBtn, soll die page-Filter neu geladen werden
         myBtn.addEventListener("click", () => this._einblenden());
+
     }//Ende Funktion
 
 
