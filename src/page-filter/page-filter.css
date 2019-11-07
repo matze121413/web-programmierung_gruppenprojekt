@@ -151,6 +151,7 @@ img:hover{
 }
 
 @media (min-width: 40em) {
-    .btn {
+    #myResults {
         margin-left: 55em;
     }
+}
