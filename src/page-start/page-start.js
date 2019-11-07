@@ -96,8 +96,8 @@ class PageStart {
     }
 
     async _goToPageDetail() {
-        document.getElementById("bildMitLink").addEventListener("click", function(){
-            window.location.href = "#/Detail/";
+        pageDom.getElementById("bildMitLink").addEventListener("click", function(){
+            alert("Bild wurde angeklickt");
         });
     }
 }

@@ -18,6 +18,7 @@
         <script src="page-upload/page-upload.js"></script>
         <script src="page-start/page-start.js"></script>
         <script src="page-detail/page-detail.js"></script>
+        <script src="page-detail2/page-detail2.js"></script>
         <script src="page-not-found/page-not-found.js"></script>
         <script src="page-filter/page-filter.js"></script>
         <script src="page-menu/page-menu.js"></script>
@@ -76,8 +77,11 @@
                     url: "^/Search/$",
                     klass: PageSearch,
                 },{
-                    url: "^/Detail/(.*)$",
+                    url: "^/Detail/$",
                     klass: PageDetail,
+                },{
+                    url: "^/Detail2/$",
+                    klass: PageDetail2,
                 },{
                     url: "^/Upload/(.*)$",
                     klass: PageUpload,
