@@ -174,9 +174,11 @@ class PageUpload {
             };
             let datenbank= new Database();
             datenbank.saveRezept(rezept);
-            var task= storageRef.put(file);
-            alert("Rezept wurde erfolgreich gespeichert.");
-                
+            storageRef.put(file).then(function(snapshot){
+                console.log('Bild ist wurde erfolgreich hochgeladen!');
+                location.reload();
+            });
+
             }
             //var file = e.target.files[0];
             //firebase.storage().ref('bilder/'+file.name);
