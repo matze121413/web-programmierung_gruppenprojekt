@@ -37,6 +37,7 @@ class PageDetail2 {
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
         this._showResults();
+        this._readURL();
 
 
 
@@ -78,6 +79,20 @@ class PageDetail2 {
     }//ENDIF
 }// Ende FOR-Schleife
 }// Ende Methode
+
+    async _readURL() {
+
+        let url = window.location+"";
+        alert(typeof url);
+        let beginnID = url.indexOf("Detail2/");
+        beginnID += 8;
+        let endeID = url.length;
+        let rezeptID = url.slice(beginnID, endeID);
+        alert(rezeptID);
+
+
+
+    }
 
 
 }//Ende der Klasse

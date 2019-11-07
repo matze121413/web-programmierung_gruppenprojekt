@@ -40,7 +40,6 @@ class PageStart {
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
         this._countDown();
-        this._goToPageDetail();
     }
 
     _countDown() {
@@ -90,14 +89,10 @@ class PageStart {
             // HTML-Code zur Anzeige des Rezepts erzeugen
             let html = templateElement.innerHTML;
             html = html.replace(/{NAME}/g, rezept.name);
+            html = html.replace(/{REZEPTID}/g, rezept.id);
             html = html.replace(/{IMAGE_URL}/g, imageUrl);
             mainElement.innerHTML += html;
         }
     }
 
-    async _goToPageDetail() {
-        pageDom.getElementById("bildMitLink").addEventListener("click", function(){
-            alert("Bild wurde angeklickt");
-        });
-    }
 }

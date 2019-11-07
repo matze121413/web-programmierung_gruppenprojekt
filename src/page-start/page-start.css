@@ -24,7 +24,7 @@ h4{
     height: 35em;
 
     white-space: nowrap;
-    text-overflow: ellipsis;
+
     overflow: hidden;
 }
 
