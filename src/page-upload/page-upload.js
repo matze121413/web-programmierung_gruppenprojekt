@@ -49,7 +49,6 @@ class PageUpload {
         let bildHochladen = document.getElementById("bildDatei");
         zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
         zutatEntfernenButton.addEventListener("click", ()=>this.deleteRow());
-        datenLesenButton.addEventListener("click", ()=>this.getEverything());
         uploadButton.addEventListener("click", ()=>this.uploadDruck());
 /*
         bildHochladen.addEventListener("change", function(e){
