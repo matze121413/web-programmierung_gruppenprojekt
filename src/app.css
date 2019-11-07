@@ -261,6 +261,7 @@ header nav ul nav {
 
                 float: left;
                 width: 100%;
+                background-image: none;
             }
 
             header nav ul nav ul {
