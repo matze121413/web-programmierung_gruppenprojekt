@@ -146,7 +146,7 @@ header .btn{
 }
 img:hover{
     cursor:pointer;
-    transform: scale(1.05) /*rotate(0.5deg);*/
+    transform: scale(1.05)
 }
 
 @media (min-width: 40em) {
