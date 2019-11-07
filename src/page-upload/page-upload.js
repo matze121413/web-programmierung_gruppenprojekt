@@ -176,7 +176,7 @@ class PageUpload {
             datenbank.saveRezept(rezept);
             var task= storageRef.put(file);
             alert("Rezept wurde erfolgreich gespeichert.");
-                location.reload();
+                
             }
             //var file = e.target.files[0];
             //firebase.storage().ref('bilder/'+file.name);
