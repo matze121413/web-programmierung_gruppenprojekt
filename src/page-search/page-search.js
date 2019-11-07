@@ -54,6 +54,38 @@ class PageSearch {
             }
             let templateElement = document.querySelector("#template-rezept");
             let mainElement = document.getElementById("anzeigenSuche");
+
+            document.getElementById("suche").style.display = "none";
+            document.getElementById("suchBegriff").style.display = "none";
+
+            //neuer bUtton wird erzeugt
+            let myBtn=document.createElement("button");
+            myBtn.classList.add('btn');
+            myBtn.innerHTML="zur Suche";
+            document.getElementById("sucheLeiste").appendChild(myBtn);
+            myBtn.addEventListener("click", () => {
+            location.reload();
+            });
+            /*
+            mainElement.removeChild(templateElement);
+            templateElement = document.createElement("template");
+            templateElement.id = "template-rezept";
+            let divElement = document.createElement("div");
+            divElement.classList.add("rezept");
+            divElement.innerHTML="{NAME}";
+            let aElement = document.createElement("a");
+            aElement.href= "#/Detail2/{REZEPTID}";
+            let imgElement= document.createElement("img");
+            imgElement.src="{IMAGE_URL}";
+            imgElement.alt="{NAME}";
+            imgElement= aElement.appendChild(imgElement);
+            aElement=divElement.appendChild(aElement);
+            divElement=templateElement.appendChild(divElement);
+            templateElement= mainElement.appendChild(templateElement);
+*/
+
+
+            console.log();
             for (let i = 0; i < suchErgebnisse.length; i++) {
                 let rezept = suchErgebnisse[i];
                 // URL des Bilds ermitteln
@@ -71,7 +103,9 @@ class PageSearch {
                 // HTML-Code zur Anzeige des Rezepts erzeugen
                 let html = templateElement.innerHTML;
                 html = html.replace(/{NAME}/g, rezept.name);
+                html = html.replace(/{REZEPTID}/g, rezept.id);
                 html = html.replace(/{IMAGE_URL}/g, imageUrl);
+
                 mainElement.innerHTML += html;
 
             //ENDIF

@@ -1,7 +1,7 @@
 <main>
-    <div>
+    <div id="sucheLeiste">
         <p>
-            <h4>Suchbegriff eingeben:</h4>
+            <h4 id="suchBegriff">Suchbegriff eingeben:</h4>
             <input type="search" id="suche" placeholder="...">
         </p>
     </div>
@@ -9,7 +9,9 @@
     <template id="template-rezept">
         <div class="rezept">
             {NAME}
+            <a href="#/Detail2/{REZEPTID}">
             <img src="{IMAGE_URL}" alt="{NAME}" />
+            </a>
         </div>
     </template>
     </div>
