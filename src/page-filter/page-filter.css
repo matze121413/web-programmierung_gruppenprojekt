@@ -143,10 +143,11 @@ header .btn{
  img {
     display: block;
     width: 100%;
+    /*margin-top: 1em;*/
 }
 img:hover{
     cursor:pointer;
-    transform: scale(1.05)
+    transform: scale(1.01)
 }
 
 @media (min-width: 40em) {
