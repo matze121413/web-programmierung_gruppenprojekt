@@ -142,7 +142,7 @@ class PageFilter {
                   document.getElementById("einblenden").appendChild(rezeptname);
                   document.getElementById("einblenden").appendChild(bild);
                   bild.addEventListener("click", ()=>{
-                      window.location.href="#/PageDetail2/"+rezept.id;
+                      window.location.href="#/Detail2/"+rezept.id;
                   });
 
                    a = true;
