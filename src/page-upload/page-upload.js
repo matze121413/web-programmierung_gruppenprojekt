@@ -49,7 +49,6 @@ class PageUpload {
         let bildHochladen = document.getElementById("bildDatei");
         zutatHinzufuegenButton.addEventListener("click", ()=>this.adRow());
         zutatEntfernenButton.addEventListener("click", ()=>this.deleteRow());
-        datenLesenButton.addEventListener("click", ()=>this.getEverything());
         uploadButton.addEventListener("click", ()=>this.uploadDruck());
 /*
         bildHochladen.addEventListener("change", function(e){
@@ -177,6 +176,7 @@ class PageUpload {
             datenbank.saveRezept(rezept);
             var task= storageRef.put(file);
             alert("Rezept wurde erfolgreich gespeichert.");
+                
             }
             //var file = e.target.files[0];
             //firebase.storage().ref('bilder/'+file.name);
