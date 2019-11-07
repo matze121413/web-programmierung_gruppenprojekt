@@ -83,7 +83,6 @@ class PageDetail2 {
     async _readURL() {
 
         let url = window.location+"";
-        alert(typeof url);
         let beginnID = url.indexOf("Detail2/");
         beginnID += 8;
         let endeID = url.length;
