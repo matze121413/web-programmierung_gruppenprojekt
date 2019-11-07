@@ -3,7 +3,7 @@
 /**
  * Klasse PageStart: Startseite der App
  */
-class PageStart {
+class PageMenuResults {
     /**
      * Konstruktor
      * @param {App} app Zentrale Instanz der App-Klasse
@@ -17,8 +17,8 @@ class PageStart {
      */
     async show() {
         // Anzuzeigenden Seiteninhalt nachladen
-        let html = await fetch("page-start/page-start.html");
-        let css = await fetch("page-start/page-start.css");
+        let html = await fetch("page-menu-results/page-menu-results.html");
+        let css = await fetch("page-menu-results/page-menu-results.css");
 
         if (html.ok && css.ok) {
             html = await html.text();
@@ -71,11 +71,38 @@ class PageStart {
         let templateElement = pageDom.querySelector("#template-rezept");
         let mainElement = pageDom.querySelector("main");
 
+        let url = window.location+"";
+        let beginnID = url.indexOf("PageMenuResults/");
+        beginnID += 16;
+        let endeID = url.length;
+        let kategorie = url.slice(beginnID, endeID);
+
 
         for (let i = 0; i < rezepte.length; i++) {
             let rezept = rezepte[i];
 
+            switch(kategorie) {
+                case "Fingerfood":
+                kategorie = 1;
+                break;
+                case "Kuchen":
+                kategorie = 2;
+                break;
+                case "Vorspeise":
+                kategorie = 3;
+                break;
+                case "Plätzchen":
+                kategorie = 4;
+                break;
+                case "Hauptspeise":
+                kategorie = 5;
+                break;
+                case "Dessert":
+                kategorie = 6;
+                break;
+            }
 
+            if(rezept.kategorie == kategorie){
 
             // URL des Bilds ermitteln
             let imageUrl = "default.jpg";
@@ -97,6 +124,7 @@ class PageStart {
             mainElement.innerHTML += html;
 
         }
+    }
 
     }
 

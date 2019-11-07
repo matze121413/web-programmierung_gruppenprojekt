@@ -1,10 +1,46 @@
 <html>
-<header>
-
-</header>
+<div>
+    hallo
+</div>
 <main>
-    <div>
-        <p>Hallo Detail-Seite</p>    
+<div id="einblenden">
+<template id="template-rezept">
+    <div class="rezept">
+        <div class="überschrift">
+        {NAME}
     </div>
+        <br />
+        Zubereitung:
+        <br />
+        <div class="beschreibung">
+            <textarea>{BESCHREIBUNG}</textarea>
+        </div>
+        <br />
+        Zubereitungszeit: {ZUBEREITUNGSZEIT}min
+        <br />
+        <div class="zutaten">
+            <table  id="zutatenTabelle">
+                <tr>
+                    <td class="td1">
+                        <!--<input name="wertMenge" min="0" type="number" placeholder="5" class="mengen"/>-->
+                        {ZUTATENMENGE}
+                    </td>
+                    <td class="td2">
+                        <!--<input name="wertEinheit"  type="text" placeholder="gramm"  class="einheiten"/>-->
+                        {ZUTATENEINHEIT}
+                    </td>
+                    <td class="td3">
+                        <!--<input name="wertZutat" type="text" placeholder="Mehl" class="zutaten"/>-->
+                        {ZUTATENNAME}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <a href="#/Detail2/{REZEPTID}">
+        <img src="{IMAGE_URL}" alt="{NAME}"/>
+        </a>
+    </div>
+</template>
+</div>
 </main>
 </html>

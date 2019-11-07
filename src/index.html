@@ -17,18 +17,12 @@
         <script src="database.js"></script>
         <script src="page-upload/page-upload.js"></script>
         <script src="page-start/page-start.js"></script>
-        <script src="page-detail/page-detail.js"></script>
         <script src="page-detail2/page-detail2.js"></script>
         <script src="page-not-found/page-not-found.js"></script>
         <script src="page-filter/page-filter.js"></script>
         <script src="page-menu/page-menu.js"></script>
         <script src="page-search/page-search.js"></script>
-        <script src="page-hauptspeise/page-hauptspeise.js"></script>
-        <script src="page-vorspeise/page-vorspeise.js"></script>
-        <script src="page-fingerfood/page-fingerfood.js"></script>
-        <script src="page-kuchen/page-kuchen.js"></script>
-        <script src="page-dessert/page-dessert.js"></script>
-        <script src="page-plaetzchen/page-plaetzchen.js"></script>
+        <script src="page-menu-results/page-menu-results.js"></script>
 
 
         <!-- Fontello Icon Font (generiert auf fontello.com) -->
@@ -50,35 +44,17 @@
                     url: "^/Home/$",
                     klass: PageStart,
                 },{
-                    url: "^/Dessert/$",
-                    klass: PageDessert,
-                },{
-                    url: "^/Plaetzchen/$",
-                    klass: PagePlaetzchen,
-                },{
-                    url: "^/Kuchen/$",
-                    klass: PageKuchen,
-                },{
-                    url: "^/Fingerfood/$",
-                    klass: PageFingerfood,
-                },{
-                    url: "^/Hauptspeise/$",
-                    klass: PageHauptspeise,
-                },{
-                    url: "^/Vorspeise/$",
-                    klass: PageVorspeise,
-                },{
                     url: "^/Menu/(.*)$",
                     klass: PageMenu,
+                },{
+                    url: "^/PageMenuResults/(.*)$",
+                    klass: PageMenuResults,
                 },{
                     url: "^/Filter/$",
                     klass: PageFilter,
                 },{
                     url: "^/Search/$",
                     klass: PageSearch,
-                },{
-                    url: "^/Detail/$",
-                    klass: PageDetail,
                 },{
                     url: "^/Detail2/(.*)$",
                     klass: PageDetail2,
@@ -133,16 +109,16 @@
                         <ul>
                             <li class="submenu"><a href="#/Home/">Herzhaft</a>
                                 <ul>
-                                    <li class="show"><a href="#/Fingerfood/">Fingerfood</a></li>
-                                    <li class="show"><a href="#/Vorspeise/">Vorspeise</a></li>
-                                    <li class="show"><a href="#/Hauptspeise/">Hauptspeise</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Fingerfood">Fingerfood</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Vorspeise">Vorspeise</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Hauptspeise">Hauptspeise</a></li>
                                 </ul>
                             </li>
                             <li class="submenu"><a href="#/Home/">Süß</a>
                                 <ul>
-                                    <li class="show"><a href="#/Kuchen/">Kuchen</a></li>
-                                    <li class="show"><a href="#/Plaetzchen/">Plätzchen</a></li>
-                                    <li class="show"><a href="#/Dessert/">Dessert</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Kuchen">Kuchen</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Plätzchen">Plätzchen</a></li>
+                                    <li class="show"><a href="#/PageMenuResults/Dessert">Dessert</a></li>
                                 </ul>
                             </li>
                         </ul>

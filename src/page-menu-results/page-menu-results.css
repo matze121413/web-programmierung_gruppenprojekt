@@ -1,0 +1,32 @@
+h4{
+    color: white;
+}
+
+.countdownContainer{
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-image:url(stars.jpg);
+    background-size:contain;
+    color: white;
+    background-color: white;
+}
+
+.rezept {
+
+    padding:0em;
+    margin: :0em;
+
+    color: white;
+
+    width: 100%;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+}
+
+.rezept img {
+    display: block;
+    width: 100%;
+}
