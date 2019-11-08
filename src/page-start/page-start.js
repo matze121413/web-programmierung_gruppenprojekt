@@ -55,7 +55,7 @@ class PageStart {
           var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
           var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
+          try{
           document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ";
 
@@ -63,7 +63,12 @@ class PageStart {
             clearInterval(x);
             document.getElementById("countDown").innerHTML = "EXPIRED";
           }
+      }catch(error){
+          return;
+      }
+
         }, 1000);
+
     }
 
     async _renderReciepts(pageDom) {
