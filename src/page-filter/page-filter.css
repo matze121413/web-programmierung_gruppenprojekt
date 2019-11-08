@@ -64,32 +64,9 @@ color:  rgb(205, 000, 000);
     height: 10px
 }
 
-/*.slider::-webkit-progress-value{
-    background: red;
-    border-radius: 12em;
-    height: 10px
-}*/
-
 
 .slider:hover{
     cursor: pointer;
-}
-
-
-.slider::after{
-    content: "200";
-    color: white;
-    position:relative;
-    left: 80%;
-    top:26%;
-}
-
-.slider::before {
-    content: "1";
-    color: black;
-    position:absolute;
-    left: 12%;
-    top: 26%;
 }
 
 /* Layout für Chrome-Browser*/
@@ -143,7 +120,6 @@ header .btn{
  img {
     display: block;
     width: 100%;
-    /*margin-top: 1em;*/
 }
 img:hover{
     cursor:pointer;
