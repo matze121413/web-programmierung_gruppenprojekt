@@ -63,7 +63,12 @@ class PageStart {
             clearInterval(x);
             document.getElementById("countDown").innerHTML = "EXPIRED";
           }
+
         }, 1000);
+
+        if (document.getElementById("countDown" === null)) {
+            clearInterval(x);
+        }
     }
 
     async _renderReciepts(pageDom) {
