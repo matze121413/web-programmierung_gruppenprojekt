@@ -57,24 +57,20 @@ input{
     box-sizing: border-box;
 }
 #hinzufuegen-button, #entfernen-button {
-    margin-top: 1em;
-    width:80%;
-    height: 100%;
-    font-size: 0.7em;
-    margin-left: 0%;
-    margin-right: 3em;
-    margin-bottom: 2em;
-display: inline;
+margin-right: 2em;
 }
 .zubereitungsZeit .value input{
     margin-right: 1em;
 }
-#entfernen-button {
-
-}
 .tabellenButton{
-box-sizing: border-box;
-float: left;
+    float:left;
+text-align: center;
+width:40%;
+margin-bottom: 1em;
+}
+.tabellenButtons{
+    width:100%;
+    margin-top: 1em;
 }
 
 button{
@@ -176,7 +172,8 @@ button:hover{
     }
     #hinzufuegen-button, #entfernen-button{
         font-size: 1.1em;
-        margin-left: 100%;
+        width: auto;
+        height: auto;
     }
     #upload{
         font-size: 2em;

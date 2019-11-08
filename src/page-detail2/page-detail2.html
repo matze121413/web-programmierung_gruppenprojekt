@@ -3,8 +3,8 @@
     hallo
 </div>
 <main>
-<div id="einblenden">
-<template id="template-rezept">
+<div >
+    <template id="einblenden">
     <div class="rezept">
         <div class="überschrift">
         {NAME}
@@ -20,28 +20,25 @@
         <br />
         <br />
         <div class="zutaten">
-            <table  id="zutatenTabelle">
-                <tr>
-                    <td class="td1">
-                        <!--<input name="wertMenge" min="0" type="number" placeholder="5" class="mengen"/>-->
-                        {ZUTATENMENGE}
-                    </td>
-                    <td class="td2">
-                        <!--<input name="wertEinheit"  type="text" placeholder="gramm"  class="einheiten"/>-->
-                        {ZUTATENEINHEIT}
-                    </td>
-                    <td class="td3">
-                        <!--<input name="wertZutat" type="text" placeholder="Mehl" class="zutaten"/>-->
-                        {ZUTATENNAME}
-                    </td>
-                </tr>
-            </table>
+
         </div>
-        <a href="#/Detail2/{REZEPTID}">
         <img src="{IMAGE_URL}" alt="{NAME}"/>
-        </a>
     </div>
-</template>
+    </template>
 </div>
+<table  id="zutatenTabelle">
+    <tr>
+        <th>
+            Menge:
+        </th>
+        <th>
+            Einheit:
+        </th>
+        <th>
+            Zutat:
+        </th>
+        </tr>
+    </tr>
+</table>
 </main>
 </html>

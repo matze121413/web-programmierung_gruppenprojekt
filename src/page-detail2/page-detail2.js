@@ -36,8 +36,9 @@ class PageDetail2 {
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
-        this._showResults();
+
         this._readURL();
+            this._showResults();
         // this.addRow();
 
 
@@ -59,18 +60,22 @@ class PageDetail2 {
     async _showResults() {
 
     let rezepte = await this._app.database.selectAllRezepte();
-    let templateElement = document.querySelector("#template-rezept");
+    //let templateElement = document.querySelector("#template-rezept");
     let mainElement = document.querySelector("main");
-
-
-    for (let i = 0; i < rezepte.length; i++) {
-        let rezept = rezepte[i];
+    // Ende FOR-Schleife
 
         let url = window.location+"";
         let beginnID = url.indexOf("Detail2/");
         beginnID += 8;
         let endeID = url.length;
         let rezeptID = url.slice(beginnID, endeID);
+
+        var rezept;
+        for (let i = 0; i < rezepte.length; i++) {
+            if(rezepte[i]["id"]==rezeptID){
+                rezept= rezepte[i];
+            }
+        }
 
         if(rezept.id == rezeptID) {
 
@@ -86,60 +91,85 @@ class PageDetail2 {
             }
         }
 
-        //var zutaten = rezept.zutaten;
-        //var zutatenTabelle = document.getElementsByTagName("table");
+
 
         //for(let j = 0; j < zutaten.length; j++) {
-            /* alert(typeof zutatenTabelle);
-            let tr = zutatenTabelle.insertRow(j+1);
+/*
+            let tr = tabelle.insertRow(1);
             let td1 = document.createElement("td");
             td1.classList.add('td1');
             let td2 = document.createElement("td");
             td2.classList.add('td2');
             let td3 = document.createElement("td");
             td3.classList.add('td3');
-            td1.innerHTML = '<input name="wertMenge" min="0" type="number" placeholder="rezept.zutaten.einheit" class="mengen"/>';
-            td2.innerHTML = '<input name="wertEinheit" type="text" placeholder="rezept.zutaten.menge" class="einheiten"/>';
-            td3.innerHTML = '<input name="wertZutat" type="text" placeholder="rezept.zutaten.zutatenName" class="zutaten"/>';
+            td1.innerHTML =zutat[0]["menge"];
+            td2.innerHTML = zutat[0]["einheit"];
+            td3.innerHTML = zutat[0]["zutatenName"];
             tr.appendChild(td1);
             tr.appendChild(td2);
-            tr.appendChild(td3);*/
+            tr.appendChild(td3);
         //}
-
+*/
 
         //HTML-Code zur Anzeige des Rezepts erzeugen
-        let html = templateElement.innerHTML;
+        let einblendenElement = document.getElementById("einblenden");
+        let html = einblenden.innerHTML;
         html = html.replace(/{NAME}/g, rezept.name);
         html = html.replace(/{REZEPTID}/g, rezept.id);
         html = html.replace(/{BESCHREIBUNG}/g, rezept.beschreibung);
         html = html.replace(/{ZUBEREITUNGSZEIT}/g, rezept.zubereitungszeit);
-
-        for(let j = 0; j < rezept.zutaten.length; j++) {
-        let tr = document.getElementById("zutatenTabelle");
+/*
+        //for(let j = 0; j < rezept.zutaten.length; j++) {
+        let tabelle = document.getElementById("zutatenTabelle");
+        let tr= document.createElement("tr");
         let td1 = document.createElement("td");
         td1.classList.add('td1');
-        html = html.replace(/{ZUTATENEINHEIT}/g, rezept.zutaten[j]['einheit']);
-        document.getElementById("einblenden").appendChild(td1);
+        td1.innerHTML=zutaten[j]["menge"];
+        //html = html.replace(/{ZUTATENEINHEIT}/g, rezept.zutaten[j]['einheit']);
+        //document.getElementById("einblenden").appendChild(td1);
 
         let td2 = document.createElement("td");
         td2.classList.add('td2');
-        html = html.replace(/{ZUTATENMENGE}/g, rezept.zutaten[j]['menge']);
-        document.getElementById("einblenden").appendChild(td2);
+        td2.innerHTML=zutaten[j]["einheit"];
+        //document.getElementById("einblenden").appendChild(td2);
 
         let td3 = document.createElement("td");
         td3.classList.add('td3');
-        html = html.replace(/{ZUTATENNAME}/g, rezept.zutaten[j]['zutatenName']);
-        document.getElementById("einblenden").appendChild(td3);
+        td3.innerHTML=zutaten[j]["zutatenName"];
+        //document.getElementById("einblenden").appendChild(td3);
+        document.getElementById("zutatenTabelle").appendChild(tr);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
         }
 
+
+*/
         html = html.replace(/{IMAGE_URL}/g, imageUrl);
         mainElement.innerHTML += html;
-
     }//ENDIF
-}// Ende FOR-Schleife
-}// Ende Methode
+
+var zutaten = rezept["zutaten"];
+var tabelle= document.getElementById("zutatenTabelle");
+for(let j = 0; j < zutaten.length; j++) {
+    let tr = tabelle.insertRow(j+1);
+    let td1 = document.createElement("td");
+    td1.classList.add('td1');
+    let td2 = document.createElement("td");
+    td2.classList.add('td2');
+    let td3 = document.createElement("td");
+    td3.classList.add('td3');
+    td1.innerHTML =zutaten[j]["menge"];
+    td2.innerHTML = zutaten [j]["einheit"];
+    td3.innerHTML = zutaten[j]["zutatenName"];
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+}
+// Ende Methode
 
 
 
 
+}
 }//Ende der Klasse
