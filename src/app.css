@@ -242,15 +242,17 @@ main a:hover {
     color: red;
 }
 
+/* Ausblenden der Menüleiste in der mobilen Ansicht */
 @media (max-width: 45em) {
-#responsiveMenu {
-    display: none;
-}
-header nav ul nav {
-    display: none;
-}
+    #responsiveMenu {
+        display: none;
+    }
+    header nav ul nav {
+        display: none;
+    }
 }
 
+/* Darstellung der Menüleiste ab einer Bildschirmgröße von 45em */
 @media (min-width: 45em) {
     .icon-menu {
         display: none;
@@ -289,6 +291,7 @@ header nav ul nav {
                 padding: 20px;
             }
 
+            /* Verschiebung der unteren Menüpunkte aus dem sichtbaren Bereich hinaus */
             header nav ul nav ul ul {
                 position: absolute;
                 top: -9999px;
@@ -307,12 +310,14 @@ header nav ul nav {
                 padding: 10px 20px;
             }
 
+            /* Zurückholen der unteren Menüpunkte in den sichtbaren Bereich bei hover */
             header nav ul nav ul li:hover > ul {
                 position: absolute;
                 top: 100%;
                 left: 0;
             }
 
+            /* Erzeugung des Icons (Dreieck nach unten) bei den oberen Menüpunkten */
             header nav ul nav ul li.submenu > a:after {
                 position: relative;
                 float: right;

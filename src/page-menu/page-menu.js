@@ -42,7 +42,7 @@ class PageMenu {
 
     }
 
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    /* Funktion zum Wechsel zwischen Hide/Show der Dropdown-Elemente */
     _dropdown() {
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;

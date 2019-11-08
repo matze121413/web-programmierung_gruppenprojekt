@@ -42,19 +42,23 @@ class PageStart {
         this._countDown();
     }
 
+    // Funktion zur Implementierung eines Countdowns bis Heiligabend
     _countDown() {
+        // Setzen des Eventdatums: 24.12.2019, 00:00:00Uhr
         var christmas = new Date("Dec 24, 2019 00:00:00").getTime();
 
+        // Setzen eines Intervalls -> alle 1000ms Funktion aufgerufen
         var x = setInterval(function() {
-
+          // aktuelle Daten holen
           var today = new Date().getTime();
-
           var timeLeft = christmas - today;
-
+          // aus Differenz Tage, Stunden, Minuten und Sekunden berechnen
           var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
           var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
           var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          // HTML-Elemente mit berechneten Daten füllen
+          // try-catch-Block um Funktion über return stoppen zu können
           try{
           document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ";
@@ -71,16 +75,16 @@ class PageStart {
 
     }
 
+    // Funktion, um alle Rezepte der Datenbank anzuzeigen
     async _renderReciepts(pageDom) {
+        // Aufruf der Methode aus database.js um Rezepte zu selektieren
         let rezepte = await this._app.database.selectAllRezepte();
         let templateElement = pageDom.querySelector("#template-rezept");
         let mainElement = pageDom.querySelector("main");
 
-
+        // Erzeugung einer Variable rezept für jedes im Array durchlaufenen Rezept
         for (let i = 0; i < rezepte.length; i++) {
             let rezept = rezepte[i];
-
-
 
             // URL des Bilds ermitteln
             let imageUrl = "default.jpg";
