@@ -13,9 +13,9 @@
     overflow: hidden;
 }
 
-.rezept img {
-    display: block;
-    width: 100%;
+.image img {
+    width: auto;
+    height: 20em;
 }
 
 .überschrift {
@@ -23,7 +23,17 @@
     font-weight: bold;
 }
 
-textarea {
+.zubereitungszeit {
+
+}
+
+.beschreibung textarea {
     width: 100%;
-    height: 20em;
+    height: 25em;
+}
+
+#zutatenTabelle {
+    background-color: white;
+    width: auto;
+    height: auto;
 }

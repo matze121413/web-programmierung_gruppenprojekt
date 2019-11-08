@@ -8,37 +8,49 @@
     <div class="rezept">
         <div class="überschrift">
         {NAME}
-    </div>
+        </div>
+
+        <div class="image">
+        <img src="{IMAGE_URL}" alt="{NAME}"/>
+        </div>
+
+        <div class="zubereitungszeit">
+        Zubereitungszeit: {ZUBEREITUNGSZEIT}min
+        </div>
+
+        <div class="beschreibung">
         <br />
         Zubereitung:
         <br />
-        <div class="beschreibung">
             <textarea>{BESCHREIBUNG}</textarea>
+        <br />
         </div>
-        <br />
-        Zubereitungszeit: {ZUBEREITUNGSZEIT}min
-        <br />
-        <br />
-        <div class="zutaten">
 
-        </div>
-        <img src="{IMAGE_URL}" alt="{NAME}"/>
+
+
     </div>
-    </template>
-</div>
-<table  id="zutatenTabelle">
-    <tr>
-        <th>
-            Menge:
-        </th>
-        <th>
-            Einheit:
-        </th>
-        <th>
-            Zutat:
-        </th>
+    <br />
+    <br />
+    <table  id="zutatenTabelle">
+        <tr>
+            <th>
+                Menge:
+                <br />
+            </th>
+            <th>
+                Einheit:
+                <br />
+            </th>
+            <th>
+                Zutat:
+                <br />
+            </th>
+            </tr>
         </tr>
-    </tr>
-</table>
+    </table>
+    </template>
+
+</div>
+
 </main>
 </html>
