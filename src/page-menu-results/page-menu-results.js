@@ -91,7 +91,7 @@ class PageMenuResults {
                 case "Vorspeise":
                 kategorie = 3;
                 break;
-                case "Plätzchen":
+                case "Plaetzchen":
                 kategorie = 4;
                 break;
                 case "Hauptspeise":
