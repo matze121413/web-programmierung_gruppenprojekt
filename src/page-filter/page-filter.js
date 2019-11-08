@@ -47,9 +47,9 @@ class PageFilter {
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
-    }
+    }//Ende Funktion
 
-    //Methode, die Kochzeit ändert, wenn Slider verschoben wird
+    //Fethode, die Kochzeit ändert, wenn Slider verschoben wird
     _onRangeChanged(sliderElement, kochzeitElement) {
         let minuten = sliderElement.value;
 
@@ -58,10 +58,10 @@ class PageFilter {
         } else {
             kochzeitElement.textContent = `${minuten} Minuten`;
         }
-    }//Ende Methode
+    }//Ende Funktion
 
 
-//Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
+   //Mit Klick auf Button "Ergebnisse anzeigen, sollen die Werte die zuvor ausgewählt wurden ausgelesen werden (Basis, um später mit Werten aus Datenbank zu vergleichen)"
    async  _getValue(cbElements, kochzeitElement, pageDom){
 
         //Datenbank-Objekt Erzeugung
@@ -109,12 +109,15 @@ class PageFilter {
             var laktosefreirezepte= glutenfreirezepte;
         }
 
+
         //laktosefrei entspricht dem Stand dass nach allen vom Nutzer ausgewählten Checks gefiltert wurde.
         //Bedeutet man kann in jedem Fall mit laktosefrei weiterarbeiten
         //Rezepte aus der laktosefreirezepte-array auf page-filter ausgeben und dabei prüfen, ob die Zubereitungszeit des Rezepts aus der laktoserezepte-Array
         //mit der angegebenen Zuberetungszeit aus der page-Filter übereinstimmt
 
-        let a=false;
+        //Flag, der regelt, ob in die if-Bedingung innerhalb der for-Schleife gegangen wird oder nicht. Wenn nicht wird außerhalb der for-Schleife in die if-Anweisung
+        //gegangen und es wird ein alert ausgegeben.
+        let nachricht=false;
         for(let i=0; i<laktosefreirezepte.length; i++){
             let rezept = laktosefreirezepte[i];
 
@@ -129,29 +132,31 @@ class PageFilter {
                     imageUrl = "default.jpg";
                 }
             }
-
+              //if-Anweisung, wenn Zubereitungszeit mit Rezept übereinstimmt
               if(rezept.zubereitungszeit<= min){
-
+                  //es werden neue html-Elemente dynamisch erzeugt
                   let rezeptname=document.createElement("h4");
                   let bild=document.createElement("img");
                   rezeptname.innerHTML=rezept.name;
-
+                  //Bildelement wird Bildurl zugewiesen und Elemente werden unter das div-Element "einblenden" im Dom-Baum gesetzt.
                   bild.src = imageUrl;
                   bild.classList.add('img');
                   bild.alt = rezept.name + " - Bild";
                   document.getElementById("einblenden").appendChild(rezeptname);
                   document.getElementById("einblenden").appendChild(bild);
+                  //addEventListener zum BIld hinzufügen -> Beim Klick aufs Bild wird auf die PageDetail2 -Seite weitergeleitet und zusätzlich
+                  //die RezeptID übergeben. Somit weiß man, welches REzept auf der PageDetail2 Seite angezeigt werden soll
                   bild.addEventListener("click", ()=>{
                       window.location.href="#/Detail2/"+rezept.id;
                   });
-
-                   a = true;
+                  //Flag wird auf true gesetzt.
+                  nachricht = true;
               }
         }//Ende for
-        if(!a){
+        if(!nachricht){
             alert("Es wurden leider keine Rezepte gefunden, die ihren Eingaben entsprechen.");
             this._einblenden();
-        }
+        }//Ende if
 
         //Beim Button-Click sollen die Elemente des filters ausgeblendet werden
         document.getElementById("myCheckBox").style.display = "none";
@@ -160,7 +165,7 @@ class PageFilter {
         document.getElementById("i").style.display="none";
         document.getElementById("name").style.display="none";
 
-        //neuer bUtton wird erzeugt
+        //neuer Button wird erzeugt
         let myBtn=document.createElement("button");
         myBtn.classList.add('btn');
         myBtn.innerHTML="Filter überarbeiten";
@@ -173,7 +178,7 @@ class PageFilter {
 
 
 
-    //Methode zum Neuladen der page-filter Seite
+    //Funktion zum Neuladen der page-filter Seite
     _einblenden(){
     location.reload();
     }//Ende Funktion
