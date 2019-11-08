@@ -35,19 +35,26 @@ class PageSearch {
         this._app.setPageCss(css);
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
+        // Element für die Sucheleiste
         let suchElement= document.getElementById("suche");
+        // ruft Methode auf sobald eine Taste auf der Tastatur gedrückt wurde
         suchElement.addEventListener("keyup", (event)=> this.nachNamenSuchen(event, suchElement));
     }
     async nachNamenSuchen(event, suchElement){
+        // führt folgenden Code aus, sobald "Enter" gedrückt wird
         if(event.keyCode===13){
+            // alle Rezepte aus der Datenbank holen
             let datenbank = new Database();
-            //Rezepte in rezepte-Array speichern
             let rezepte = await datenbank.selectAllRezepte();
+            // Text aus der Suchleiste auslesen & in Großbuchstaben konvertieren
             let suche = suchElement.value.toUpperCase();
             var suchErgebnisse = [];
+            //Schleift geht alle Rezepte in der Datenbank durch
             for(let i=0; i<rezepte.length; i++){
+                // Rezeptnamen an Stelle i raussuchen & in Großbuchstaben konvertieren
                 let rezeptName= rezepte[i]["name"];
                 rezeptName= rezeptName.toUpperCase();
+                // falls der Suchtext im Rezeptnamen entahlten ist (oder anders rum) wird das Rezept zu suchErgebnisse hinzugefügt
                 if(rezeptName.includes(suche)||suche.includes(rezeptName)){
                 suchErgebnisse.push(rezepte[i]);
                 }
@@ -58,7 +65,9 @@ class PageSearch {
             document.getElementById("suche").style.display = "none";
             document.getElementById("suchBegriff").style.display = "none";
 
-            //neuer bUtton wird erzeugt
+            //ab hier wie Startseite etc.
+
+            //neuer Button wird erzeugt
             let myBtn=document.createElement("button");
             myBtn.classList.add('btn');
             myBtn.innerHTML="zur Suche";
@@ -66,23 +75,6 @@ class PageSearch {
             myBtn.addEventListener("click", () => {
             location.reload();
             });
-            /*
-            mainElement.removeChild(templateElement);
-            templateElement = document.createElement("template");
-            templateElement.id = "template-rezept";
-            let divElement = document.createElement("div");
-            divElement.classList.add("rezept");
-            divElement.innerHTML="{NAME}";
-            let aElement = document.createElement("a");
-            aElement.href= "#/Detail2/{REZEPTID}";
-            let imgElement= document.createElement("img");
-            imgElement.src="{IMAGE_URL}";
-            imgElement.alt="{NAME}";
-            imgElement= aElement.appendChild(imgElement);
-            aElement=divElement.appendChild(aElement);
-            divElement=templateElement.appendChild(divElement);
-            templateElement= mainElement.appendChild(templateElement);
-*/
 
 
             console.log();
@@ -108,7 +100,7 @@ class PageSearch {
 
                 mainElement.innerHTML += html;
 
-            //ENDIF
+
         }
     }
     }
