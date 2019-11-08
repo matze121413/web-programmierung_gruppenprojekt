@@ -39,31 +39,6 @@ class PageMenuResults {
         this._app.setPageHeader(this._pageDom.querySelector("header"));
         this._app.setPageContent(this._pageDom.querySelector("main"));
 
-        this._countDown();
-    }
-
-    _countDown() {
-        var christmas = new Date("Dec 24, 2019 00:00:00").getTime();
-
-        var x = setInterval(function() {
-
-          var today = new Date().getTime();
-
-          var timeLeft = christmas - today;
-
-          var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-          document.getElementById("countDown").innerHTML = days + "d " + hours + "h "
-          + minutes + "m " + seconds + "s ";
-
-          if (timeLeft < 0) {
-            clearInterval(x);
-            document.getElementById("countDown").innerHTML = "EXPIRED";
-          }
-        }, 1000);
     }
 
     async _renderReciepts(pageDom) {
@@ -91,7 +66,7 @@ class PageMenuResults {
                 case "Vorspeise":
                 kategorie = 3;
                 break;
-                case "Plätzchen":
+                case "Plaetzchen":
                 kategorie = 4;
                 break;
                 case "Hauptspeise":
