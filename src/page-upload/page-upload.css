@@ -97,6 +97,10 @@ button:hover{
 .kategorie .value table{
     width:100%;
 }
+.kategorie .value label:hover, .gerichtsMerkmale .value label:hover{
+color:  red;
+cursor: pointer;
+}
 
 .kategorie .value th{
 
