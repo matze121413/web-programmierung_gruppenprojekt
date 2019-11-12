@@ -196,32 +196,6 @@ header .content span {
     }
 }
 
-/*@media (min-width: 40em) {
-    .small-screen-only {
-        display: none !important;
-    }
-
-    .logo {
-        display: inline-block !important;
-
-        height: 2em;
-        padding-right: var(--content-padding);
-    }
-
-    header nav,
-    header nav .menu-right {
-        display: flex;
-    }
-
-    header nav .menu-right li {
-        padding-left: var(--content-padding);
-    }
-
-    header nav .menu-left {
-        flex: 1;
-}
-}*/
-
 /*
  * HAUPTBEREICH
  */

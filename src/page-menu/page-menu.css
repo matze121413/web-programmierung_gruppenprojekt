@@ -1,46 +1,40 @@
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-/* generelles Layout */
-.sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  border: none;
-  background: none;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-
-/* Reaktion auf Maus-Hover */
-.sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
-}
-
+/* Layout des main-Elements */
 .main {
   margin-left: 200px;
   font-size: 20px;
   padding: 0px 10px;
 }
 
+/* generelle Style-Eigenschaften */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1C1C1C;
+  padding-top: 20px;
+}
+
+/* Style-Eigenschaften der oberen Menüpunkte */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #FFFFFF;
+  display: block;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
 /* Default: untere Menüpunkte ausgeblendet */
 .dropdown-container {
   display: none;
-  background-color: #262626;
-  padding-left: 8px;
+  background-color: #2E2E2E;
+  padding-left: 4px;
 }
 
 /* Plus-Icon zur Kennzeichnung der oberen Dropdown-Elemente */
