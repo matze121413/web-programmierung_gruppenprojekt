@@ -1,59 +1,54 @@
 <html>
-<div>
-    hallo
-</div>
-<main>
-<div >
-    <!-- Template zur Anzeige des Rezepts -->
-    <template id="einblenden">
-    <div class="rezept">
-        <div class="überschrift">
-        {NAME}
-        </div>
+    <main>
+        <div >
+            <!-- Template zur Anzeige des Rezepts -->
+            <template id="einblenden">
+                <div class="rezept">
+                    <div class="überschrift">
+                        {NAME}
+                    </div>
 
-        <div class="image">
-        <img src="{IMAGE_URL}" alt="{NAME}"/>
-        </div>
+                    <div class="image">
+                        <img src="{IMAGE_URL}" alt="{NAME}"/>
+                    </div>
 
-        <div class="zubereitungszeit">
-        Zubereitungszeit: {ZUBEREITUNGSZEIT}min
-        </div>
+                    <div class="zubereitungszeit">
+                        Zubereitungszeit: {ZUBEREITUNGSZEIT}min
+                    </div>
 
-        <div class="beschreibung">
-        <br />
-        Zubereitung:
-        <br />
-        <!-- textarea, damit der Beschreibungstext scrollbar wird und so für den
-        Anwender besser angezeigt werden kann -->
-            <textarea>{BESCHREIBUNG}</textarea>
-        <br />
-        </div>
+                    <div class="beschreibung">
+                        <br />
+                        Zubereitung:
+                        <br />
+                        <!-- textarea, damit der Beschreibungstext scrollbar wird und so für den
+                        Anwender besser angezeigt werden kann -->
+                        <textarea>{BESCHREIBUNG}</textarea>
+                        <br />
+                    </div>
 
-    </div>
-    <br />
-    <br />
-
-    <!-- dynamisches Template, für das für jeden Eintrag neue Elemente erzeugt werden -->
-    <table  id="zutatenTabelle">
-        <tr>
-            <th>
-                Menge:
+                </div>
                 <br />
-            </th>
-            <th>
-                Einheit:
                 <br />
-            </th>
-            <th>
-                Zutat:
-                <br />
-            </th>
-            </tr>
-        </tr>
-    </table>
-    </template>
 
-</div>
+                <!-- dynamisches Template, für das für jeden Eintrag neue Elemente erzeugt werden -->
+                <table  id="zutatenTabelle">
+                    <tr>
+                        <th>
+                            Menge:
+                            <br />
+                        </th>
+                        <th>
+                            Einheit:
+                            <br />
+                        </th>
+                        <th>
+                            Zutat:
+                            <br />
+                        </th>
+                    </tr>
+                </table>
+            </template>
 
-</main>
+        </div>
+    </main>
 </html>
