@@ -258,35 +258,31 @@ main a:hover {
         display: none;
     }
 
-
+            /* Style-Eigenschaften für die oberen Menüpunkte */
             header nav ul nav {
-
-                float: left;
-                width: 100%;
+                width: 90%;
                 background-image: none;
             }
 
-            header nav ul nav ul {
-                margin: 0;
-                padding: 0;
-            }
-
+            /* Style-Eigenschaften der Links, damit diese als Block dargestellt werden */
             header nav ul nav a {
                 display: block;
-                color: #fff;
-                text-decoration: none;
             }
 
+            /* Style-Eigenschaften der unteren Menüpunkte */
             header nav ul nav ul li {
                 position: relative;
-                float: left;
+                /* keine Aufzählungszeichen */
                 list-style: none;
             }
 
+            /* Style-Eigenschaften, die Darstellung nach dem hovern definieren */
             header nav ul nav ul li:hover {
                 background: #8A0808;
+                border-radius: 5px;
             }
 
+            /* Einstellung eines festen Abstands vor den oberen Menülinks */
             header nav ul nav ul li a {
                 padding: 20px;
             }
@@ -296,16 +292,17 @@ main a:hover {
                 position: absolute;
                 top: -9999px;
                 left: -9999px;
-                background: #333;
-                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+                /* Festlegung der Hintergrunddarstellung der unteren Menüpunkte */
+                background: #122A0A;
+                border-radius: 5px;
                 }
 
+            /* Breite der Dropdown-Elemente einstellen */
             header nav ul nav ul ul li {
-                float: none;
                 width: 200px;
-                border-bottom: 1px solid #555;
             }
 
+            /* Innenabstand der unteren Menülinks oben (10px) und rechts (20px) definieren */
             header nav ul nav ul ul li a {
                 padding: 10px 20px;
             }
@@ -315,32 +312,6 @@ main a:hover {
                 position: absolute;
                 top: 100%;
                 left: 0;
-            }
-
-            /* Erzeugung des Icons (Dreieck nach unten) bei den oberen Menüpunkten */
-            header nav ul nav ul li.submenu > a:after {
-                position: relative;
-                float: right;
-                content: '';
-                margin-left: 10px;
-                margin-top: 5px;
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                border-top: 5px solid #fff;
-                border-bottom: 5px solid transparent;
-            }
-
-            header nav ul nav ul ul li.submenu a:after {
-                margin-left: auto;
-                margin-right: -10px;
-                border-left: 5px solid #fff;
-                border-right: 5px solid transparent;
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-            }
-
-            header nav ul nav ul ul li:last-child {
-                border-bottom: none;
             }
 
 
