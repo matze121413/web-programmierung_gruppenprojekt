@@ -46,6 +46,8 @@ class PageMenuResults {
         let templateElement = pageDom.querySelector("#template-rezept");
         let mainElement = pageDom.querySelector("main");
 
+        /* URL auswerten und so zuschneiden, dass nur noch der Wert hinter dem letzten Slash
+        betrachtet wird -> enthält die Rezeptkategorie */
         let url = window.location+"";
         let beginnID = url.indexOf("PageMenuResults/");
         beginnID += 16;
@@ -56,6 +58,8 @@ class PageMenuResults {
         for (let i = 0; i < rezepte.length; i++) {
             let rezept = rezepte[i];
 
+            /* in der URL hinter dem letzten Slash übergebenen String auswerten
+            und den dazugehörigen Werten der Datenbank zuordnen */
             switch(kategorie) {
                 case "Fingerfood":
                 kategorie = 1;
@@ -77,6 +81,7 @@ class PageMenuResults {
                 break;
             }
 
+            // nur die Rezepte anzeigen, deren Kategorie zutrifft
             if(rezept.kategorie == kategorie){
 
             // URL des Bilds ermitteln
@@ -94,14 +99,17 @@ class PageMenuResults {
             // HTML-Code zur Anzeige des Rezepts erzeugen
             let html = templateElement.innerHTML;
             html = html.replace(/{NAME}/g, rezept.name);
+            /* Rezept-ID für die Übergabe an die Seite page-detail2 erzeugen, damit diese
+            in den bei Klick auf das Bild aufgerufenen Link geschrieben werden kann */
             html = html.replace(/{REZEPTID}/g, rezept.id);
             html = html.replace(/{IMAGE_URL}/g, imageUrl);
             mainElement.innerHTML += html;
 
-        }
-    }
+        } // Ende if (rezept.bildId)
+    } // Ende if(rezept.kategorie == kategorie)
 
-    }
+} // Ende for-Schleife über alle Rezepte
 
-}
-}
+} // Ende Methode
+
+} // Ende der Klasse

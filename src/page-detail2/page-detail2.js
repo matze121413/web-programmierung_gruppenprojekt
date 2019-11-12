@@ -50,8 +50,8 @@ class PageDetail2 {
         // URL auslesen
         let url = window.location+"";
 
-        // den Teil beginnend nach Detail2/ der URL auslesen
-        // => Rezept-ID des aufrufenden Rezepts
+        /* URL so zuschneiden, dass nur noch der Wert hinter dem letzten Slash
+        betrachtet wird -> enthält die Rezept-ID */
         let beginnID = url.indexOf("Detail2/");
         beginnID += 8;
         let endeID = url.length;
@@ -64,6 +64,7 @@ class PageDetail2 {
             }
         }
 
+        // nur die Rezepte anzeigen, deren Rezept-ID zutrifft
         if(rezept.id == rezeptID) {
 
         // URL des Bilds ermitteln
@@ -76,39 +77,42 @@ class PageDetail2 {
                 console.error(error);
                 imageUrl = "default.jpg";
             }
-        } // Ende if
+        } // Ende if(rezept.bildId)
 
         //HTML-Code zur Anzeige des Rezepts erzeugen
         let einblendenElement = document.getElementById("einblenden");
         let html = einblenden.innerHTML;
         html = html.replace(/{NAME}/g, rezept.name);
+        /* Rezept-ID für die Übergabe an die Seite page-detail2 erzeugen, damit diese
+        in den bei Klick auf das Bild aufgerufenen Link geschrieben werden kann */
         html = html.replace(/{REZEPTID}/g, rezept.id);
         html = html.replace(/{BESCHREIBUNG}/g, rezept.beschreibung);
         html = html.replace(/{ZUBEREITUNGSZEIT}/g, rezept.zubereitungszeit);
 
         html = html.replace(/{IMAGE_URL}/g, imageUrl);
         mainElement.innerHTML += html;
-    } // Ende if
+    } // Ende if(rezept.id == rezeptID)
 
-// Array Zutaten durchlaufen und für jeden Durchlauf neue HTML-Elemente zur Anzeige erzeugen
-var zutaten = rezept["zutaten"];
-var tabelle= document.getElementById("zutatenTabelle");
-for(let j = 0; j < zutaten.length; j++) {
-    let tr = tabelle.insertRow(j+1);
-    let td1 = document.createElement("td");
-    td1.classList.add('td1');
-    let td2 = document.createElement("td");
-    td2.classList.add('td2');
-    let td3 = document.createElement("td");
-    td3.classList.add('td3');
-    td1.innerHTML =zutaten[j]["menge"];
-    td2.innerHTML = zutaten [j]["einheit"];
-    td3.innerHTML = zutaten[j]["zutatenName"];
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-} // Ende for-Schleife
+        /* Array Zutaten durchlaufen und für jeden Durchlauf
+        neue HTML-Elemente zur Anzeige erzeugen */
+        var zutaten = rezept["zutaten"];
+        var tabelle= document.getElementById("zutatenTabelle");
+        for(let j = 0; j < zutaten.length; j++) {
+            let tr = tabelle.insertRow(j+1);
+            let td1 = document.createElement("td");
+            td1.classList.add('td1');
+            let td2 = document.createElement("td");
+            td2.classList.add('td2');
+            let td3 = document.createElement("td");
+            td3.classList.add('td3');
+            td1.innerHTML =zutaten[j]["menge"];
+            td2.innerHTML = zutaten [j]["einheit"];
+            td3.innerHTML = zutaten[j]["zutatenName"];
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+        } // Ende for-Schleife
 
-} // Ende _shorResults()
+} // Ende _showResults()
 
 }//Ende der Klasse

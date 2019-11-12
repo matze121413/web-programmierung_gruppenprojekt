@@ -56,8 +56,9 @@ class PageMenu {
         } else {
           dropdownContent.style.display = "block";
         }
-      });
-    }
+     }); // Ende addEventListener
+    } // Ende for-Schleife
+
     }
 
 
