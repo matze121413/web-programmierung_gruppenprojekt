@@ -1,7 +1,7 @@
 Kurs WWI18B2
 
 Gruppenmitglieder:
-Matthias Schultze-Westrum
+Matthias Schultze-Westrum (Mat.Nr.: 9131669)
 Sarah Unterseher (Mat.Nr.: 9715518)
 Franziska Vögele (Mat.Nr.: 9981341)
 
