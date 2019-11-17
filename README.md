@@ -10,7 +10,7 @@ Franziska Vögele (Mat.Nr.: 9981341)
 Diese Single Page App ermöglicht es dem Anwender, süße und herzhafte Rezepte
 rund um die Weihnachtszeit in sechs Kategorien (Kuchen, Plätzchen, Dessert, Vorspeise,
 Hauptspeise und Fingerfood) mit Rezeptbild, Zubereitungszeit, Kurzbeschreibung, Zutatenliste, Merkmalen (vegan, vegetarisch, laktosefrei oder glutenfrei) und Titel in eine Google-Firebase-Datenbank hochzuladen, und sie sich anschließend anzeigen zu lassen.
-Dabei wurde diese Single Page App nach dem Mobile First Prinzip entwickelt.
+Dabei wurde diese Single Page App nach dem Mobile First Prinzip entwickelt. Die Voraussetzung zur Nutzung dieser Single Page App ist, dass das Engerät internetfähig und einen Browser auf dem Endgerät installiert ist.
 
 Die Anzeige kann über folgende Möglichkeiten erfolgen:
 Es ist möglich, sich alle vorhandenen Rezepte auf der Startseite unsortiert anzeigen zu lassen.
