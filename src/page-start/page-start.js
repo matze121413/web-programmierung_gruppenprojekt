@@ -101,6 +101,8 @@ class PageStart {
             // HTML-Code zur Anzeige des Rezepts erzeugen
             let html = templateElement.innerHTML;
             html = html.replace(/{NAME}/g, rezept.name);
+            /* Rezept-ID für die Übergabe an die Seite page-detail2 erzeugen, damit diese
+            in den bei Klick auf das Bild aufgerufenen Link geschrieben werden kann */
             html = html.replace(/{REZEPTID}/g, rezept.id);
             html = html.replace(/{IMAGE_URL}/g, imageUrl);
             mainElement.innerHTML += html;

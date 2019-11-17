@@ -2,6 +2,7 @@ h4{
     color: white;
 }
 
+/* Style-Eigenschafte Countdown */
 .countdownContainer{
     width: 100%;
     left: 0;
@@ -12,6 +13,7 @@ h4{
     background-color: white;
 }
 
+/* generelle Style-Eigenschaften für jedes Rezept */
 .rezept {
 
     padding:0em;
@@ -26,6 +28,7 @@ h4{
     overflow: hidden;
 }
 
+/* Style-Eigenschaften Rezeptbild */
 .rezept img {
     display: block;
     width: 100%;

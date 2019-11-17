@@ -2,6 +2,7 @@ h4 {
     color: white;
 }
 
+/* generelle Style-Eigenschaften */
 .rezept {
     padding: 0em;
     margin: 0em;
@@ -11,6 +12,7 @@ h4 {
     overflow: hidden;
 }
 
+/* Bild soll über gesamte Bildschirmbreite gehen */
 .rezept img {
     display: block;
     width: 100%;

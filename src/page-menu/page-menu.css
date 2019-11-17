@@ -1,7 +1,7 @@
 /* Layout des main-Elements */
 .main {
   margin-left: 200px;
-  font-size: 20px;
+  font-size: 1em;
   padding: 0px 10px;
 }
 
@@ -19,8 +19,7 @@
 /* Style-Eigenschaften der oberen Menüpunkte */
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
+  font-size: 1em;
   color: #FFFFFF;
   display: block;
   background: none;
@@ -34,11 +33,12 @@
 .dropdown-container {
   display: none;
   background-color: #2E2E2E;
-  padding-left: 4px;
+  padding-left: 1em;
+  cursor: pointer;
 }
 
 /* Plus-Icon zur Kennzeichnung der oberen Dropdown-Elemente */
 .icon-plus {
   float: right;
-  padding-right: 8px;
+  padding-right: 1em;
 }

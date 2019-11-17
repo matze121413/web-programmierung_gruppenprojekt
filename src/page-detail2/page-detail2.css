@@ -1,5 +1,5 @@
+/* generelle Style-Eigenschaften */
 .rezept {
-
     padding:0;
     margin:0;
 
@@ -13,20 +13,19 @@
     overflow: hidden;
 }
 
+/* Style-Eigenschaften des Rezeptbildes */
 .image img {
     width: auto;
     height: 20em;
 }
 
+/* Style-Eigenschaften Titel des Rezepts */
 .überschrift {
     text-decoration: underline;
     font-weight: bold;
 }
 
-.zubereitungszeit {
-
-}
-
+/* Style-Eigenschaften für die Rezeptbeschreibung */
 .beschreibung textarea {
     width: 80%;
     height: 25em;
@@ -35,6 +34,7 @@
     border: none;
 }
 
+/* Style-Eigenschaften für die Zutaten-Tabelle */
 #zutatenTabelle {
     background: black;
     color: white;
@@ -42,6 +42,7 @@
     height: auto;
 }
 
+/* Kurzbeschreibung soll bei mobiler Ansicht nicht bis an den rechten Bildschirmrand gehen */
 @media (max-width: 40em) {
     .beschreibung textarea {
         margin-left: 0%;
